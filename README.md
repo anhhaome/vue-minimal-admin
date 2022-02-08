@@ -135,7 +135,7 @@ export default defineConfig({
 Step 6. Then, install other packages.
 
 ```bash
-yarn add -D uniqid dexie indexeddb-export-import animate.css axios
+yarn add -D uniqid dexie indexeddb-export-import animate.css axios pluralize
 yarn
 ```
 
