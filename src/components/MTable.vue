@@ -42,6 +42,10 @@ reloadLabels();
   <table class="table-fixed w-full">
     <thead class="bg-gray-50 dark:bg-gray-800 border-b
     dark:border-gray-700">
+      <th v-if="hasSlot('beforerow', $slots)">
+        <slot name="beforerow" v-bind="{row: null}"></slot>
+      </th>
+
       <th class="py-2 px-4 font-normal text-xs text-left uppercase" v-for="label in localLables">
         <slot :name="`head(${label})`" v-bind="{label}">
           <slot :name="`head()`" v-bind="{label}">
@@ -49,17 +53,31 @@ reloadLabels();
           </slot>
         </slot>
       </th>
+
+      <th v-if="hasSlot('afterrow', $slots)">
+        <slot name="afterrow" v-bind="{row: null}"></slot>
+      </th>
     </thead>
     <tbody>
       <!-- top cell -->
       <tr class="border-b
-        dark:border-gray-700" v-if="hasSlot('topcell', $slots)">
+        dark:border-gray-700"
+        v-if="hasSlot('topcell', $slots)"
+      >
+        <td v-if="hasSlot('beforerow', $slots)">
+          <slot name="beforerow" v-bind="{row: null}"></slot>
+        </td>
+
         <td class="py-2 px-4"
           v-for="label in localLables"
         >
           <slot :name="`topcell(${label})`" v-bind="{label}">
             <slot :name="`topcell()`" v-bind="{label}"></slot>
           </slot>
+        </td>
+
+        <td v-if="hasSlot('afterrow', $slots)">
+          <slot name="afterrow" v-bind="{row: null}"></slot>
         </td>
       </tr>
 
@@ -68,6 +86,10 @@ reloadLabels();
         dark:border-gray-700"
         v-for="row of props.data"
       >
+        <td v-if="hasSlot('beforerow', $slots)">
+          <slot name="beforerow" v-bind="{row}"></slot>
+        </td>
+
         <td class="py-2 px-4"
           v-for="label in localLables"
         >
@@ -77,17 +99,31 @@ reloadLabels();
             </slot>
           </slot>
         </td>
+
+        <td v-if="hasSlot('afterrow', $slots)">
+          <slot name="afterrow" v-bind="{row}"></slot>
+        </td>
       </tr>
 
       <!-- bottom cell -->
       <tr class="border-b
-        dark:border-gray-700" v-if="hasSlot('bottomcell', $slots)">
+        dark:border-gray-700"
+        v-if="hasSlot('bottomcell', $slots)"
+      >
+        <td v-if="hasSlot('beforerow', $slots)">
+          <slot name="beforerow" v-bind="{row: null}"></slot>
+        </td>
+
         <td class="py-2 px-4"
           v-for="label in localLables"
         >
           <slot :name="`bottomcell(${label})`" v-bind="{label}">
             <slot :name="`bottomcell()`" v-bind="{label}"></slot>
           </slot>
+        </td>
+
+        <td v-if="hasSlot('afterrow', $slots)">
+          <slot name="afterrow" v-bind="{row: null}"></slot>
         </td>
       </tr>
     </tbody>

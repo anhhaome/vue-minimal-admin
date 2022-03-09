@@ -185,6 +185,24 @@ Common Components:
   - `href`
   - `icon`
 
+### MTable
+
+Slots:
+
+- Rows
+  - `beforerow`
+  - `afterrow`
+
+- Cells
+  - `head()`
+  - `head(name)`
+  - `topcell()`
+  - `topcell(name)`
+  - `cell()`
+  - `cell(name)`
+  - `bottomcell()`
+  - `bottomcell(name)`
+
 ## Plugins
 
 ### DB
