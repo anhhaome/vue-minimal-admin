@@ -3,6 +3,8 @@ import { inject } from "vue";
 
 import MPanel from "../../components/MPanel.vue";
 import MTable from "../../components/MTable.vue";
+import MCheckbox from "../../components/MCheckbox.vue";
+import MDropdown from "../../components/MDropdown.vue";
 
 const mUtils = inject("mutils");
 
@@ -33,12 +35,20 @@ const data = [
 
   <MPanel>
     <MTable :data="data">
+      <template #beforerow="{row}">
+        <MCheckbox />
+      </template>
+
       <template #cell(price)="data">
         {{ mUtils.formatCurrency(data.value) }}
       </template>
 
       <template #cell()="data">
         {{ data.value }}
+      </template>
+
+      <template #afterrow="{row}">
+        <MDropdown />
       </template>
     </MTable>
   </MPanel>
