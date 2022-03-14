@@ -39,7 +39,7 @@ reloadLabels();
 </script>
 
 <template>
-  <table class="table-fixed w-full">
+  <table class="m-table table-fixed w-full">
     <thead class="bg-gray-50 dark:bg-gray-800 border-b
     dark:border-gray-700">
       <th v-if="hasSlot('beforerow', $slots)">

@@ -32,6 +32,12 @@ const navigations = props.items || [
     href: "/dashboard/button",
     icon: "play-circle",
   },
+  {
+    type: "link",
+    name: "Checkbox",
+    href: "/dashboard/checkbox",
+    icon: "checkbox",
+  },
   { type: "link", name: "Dialog", href: "/dashboard/dialog", icon: "browsers" },
   {
     type: "link",

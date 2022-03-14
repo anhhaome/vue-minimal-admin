@@ -39,6 +39,11 @@ const router = createRouter({
           component: () => import("../views/dashboard/ButtonView.vue"),
         },
         {
+          path: "checkbox",
+          name: "Checkbox",
+          component: () => import("../views/dashboard/CheckboxView.vue"),
+        },
+        {
           path: "dialog",
           name: "Dialog",
           component: () => import("../views/dashboard/DialogView.vue"),
