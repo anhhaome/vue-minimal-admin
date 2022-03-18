@@ -7,6 +7,7 @@ export { default as MAlert } from "./src/components/MAlert.vue";
 export { default as MBreadcrumb } from "./src/components/MBreadcrumb.vue";
 export { default as MButton } from "./src/components/MButton.vue";
 export { default as MConfirmDialog } from "./src/components/MConfirmDialog.vue";
+export { default as MCheckbox } from "./src/components/MCheckbox.vue";
 export { default as MDialog } from "./src/components/MDialog.vue";
 export { default as MDropdown } from "./src/components/MDropdown.vue";
 export { default as MInput } from "./src/components/MInput.vue";
