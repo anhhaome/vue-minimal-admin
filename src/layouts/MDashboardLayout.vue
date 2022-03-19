@@ -46,6 +46,12 @@ const navigations = props.items || [
     icon: "caret-down",
   },
   { type: "link", name: "List", href: "/dashboard/list", icon: "list" },
+  {
+    type: "link",
+    name: "Loader",
+    href: "/dashboard/loader",
+    icon: "reload",
+  },
   { type: "link", name: "Input", href: "/dashboard/input", icon: "brush" },
   { type: "link", name: "Table", href: "/dashboard/table", icon: "server" },
   { type: "label", name: "Pages" },

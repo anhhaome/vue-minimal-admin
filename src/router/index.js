@@ -64,6 +64,11 @@ const router = createRouter({
           component: () => import("../views/dashboard/InputView.vue"),
         },
         {
+          path: "loader",
+          name: "Loader",
+          component: () => import("../views/dashboard/LoaderView.vue"),
+        },
+        {
           path: "table",
           name: "Table",
           component: () => import("../views/dashboard/TableView.vue"),

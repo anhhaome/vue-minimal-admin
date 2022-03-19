@@ -15,6 +15,7 @@ export { default as MInputDialog } from "./src/components/MInputDialog.vue";
 export { default as MLink } from "./src/components/MLink.vue";
 export { default as MList } from "./src/components/MList.vue";
 export { default as MListItem } from "./src/components/MListItem.vue";
+export { default as MLoader } from "./src/components/MLoader.vue";
 export { default as MNotification } from './src/components/MNotification.vue';
 export { default as MPanel } from "./src/components/MPanel.vue";
 export { default as MTable } from "./src/components/MTable.vue";
