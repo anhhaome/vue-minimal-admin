@@ -10,8 +10,8 @@ const mNoti = inject("mnoti");
 const items = ["Profile", "Settings", "Messages", "Download"];
 
 const sayHello = () => {
-  mNoti.push('info', 'Hello from dropdown item')
-}
+  mNoti.push("info", "Hello from dropdown item");
+};
 </script>
 
 <template>
@@ -22,7 +22,12 @@ const sayHello = () => {
       <MList :items="items"></MList>
     </MDropdown>
 
-    <MDropdown label="Open dropdown" :autohide="true" position="right" variant="none">
+    <MDropdown
+      label="Open dropdown"
+      :autohide="true"
+      position="right"
+      variant="none"
+    >
       <MList>
         <MListItem @click="sayHello">Do something</MListItem>
       </MList>

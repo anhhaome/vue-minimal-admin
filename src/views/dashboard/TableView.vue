@@ -32,35 +32,37 @@ const data = [
 ];
 
 const selected = reactive(new Set());
-const toggleAll = checked => {
-  if (!checked){
-    for (let v of selected)
-      selected.delete(v);
+const toggleAll = (checked) => {
+  if (!checked) {
+    for (let v of selected) selected.delete(v);
   } else {
-    for (let item of data)
-      selected.add(item.name);
+    for (let item of data) selected.add(item.name);
   }
-}
+};
 const toggleSelect = (row, checked) => {
-  if (checked){
+  if (checked) {
     selected.add(row.name);
   } else {
     selected.delete(row.name);
   }
-}
-const isSelected = row => selected.has(row.name);
+};
+const isSelected = (row) => selected.has(row.name);
 const isSelectedAll = computed(() => selected.size === data.length);
-const isAnySelectedAndNotAll = computed(() => selected.size !== 0 && selected.size !== data.length)
+const isAnySelectedAndNotAll = computed(
+  () => selected.size !== 0 && selected.size !== data.length
+);
 </script>
 
 <template>
   <h1 class="text-3xl mt-4 font-semibold">Table</h1>
 
   <MPanel>
-    <p class="mb-2">Value: <code>{{ selected }}</code></p>
+    <p class="mb-2">
+      Value: <code>{{ selected }}</code>
+    </p>
 
     <MTable class="my-table" :data="data">
-      <template #beforerow="{row}">
+      <template #beforerow="{ row }">
         <MCheckbox
           v-if="row"
           :modelValue="isSelected(row)"
@@ -82,7 +84,7 @@ const isAnySelectedAndNotAll = computed(() => selected.size !== 0 && selected.si
         {{ data.value }}
       </template>
 
-      <template #afterrow="{row}">
+      <template #afterrow="{ row }">
         <MDropdown v-if="row" variant="none" position="right" :autohide="true">
           <MList>
             <MListItem>Show</MListItem>
@@ -100,8 +102,8 @@ const isAnySelectedAndNotAll = computed(() => selected.size !== 0 && selected.si
   th:first-child,
   td:first-child {
     width: 3em;
-    
-    >div {
+
+    > div {
       display: flex;
       justify-content: center;
       width: 100%;
@@ -112,8 +114,8 @@ const isAnySelectedAndNotAll = computed(() => selected.size !== 0 && selected.si
   th:last-child,
   td:last-child {
     width: 3em;
-    
-    >div {
+
+    > div {
       width: 100%;
       height: 100%;
     }

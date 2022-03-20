@@ -5,7 +5,7 @@ import { RouterView } from "vue-router";
 import MConfirmDialog from "./components/MConfirmDialog.vue";
 import MInputDialog from "./components/MInputDialog.vue";
 
-import MNotification from './components/MNotification.vue';
+import MNotification from "./components/MNotification.vue";
 
 // dialog
 const confirmDialog = ref(null);
@@ -30,5 +30,5 @@ mNoti.register(notification);
   <MConfirmDialog ref="confirmDialog" />
   <MInputDialog ref="inputDialog" />
 
-  <MNotification ref="notification"/>
+  <MNotification ref="notification" />
 </template>

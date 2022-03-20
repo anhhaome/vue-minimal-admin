@@ -8,7 +8,7 @@ const props = defineProps(["items"]);
 const route = useRoute();
 const controlLeftSidebar = ref(false);
 
-const isSameRoute = item => item.name === route.name || item.active;
+const isSameRoute = (item) => item.name === route.name || item.active;
 
 const navigations = props.items || [
   { type: "label", name: "Overview" },
@@ -53,6 +53,12 @@ const navigations = props.items || [
     icon: "reload",
   },
   { type: "link", name: "Input", href: "/dashboard/input", icon: "brush" },
+  {
+    type: "link",
+    name: "Pagination",
+    href: "/dashboard/pagination",
+    icon: "copy",
+  },
   { type: "link", name: "Table", href: "/dashboard/table", icon: "server" },
   { type: "label", name: "Pages" },
   { type: "link", name: "Error", href: "error-page", icon: "bug" },
@@ -67,7 +73,12 @@ const navigations = props.items || [
   { type: "label", name: "Plugins" },
   { type: "link", name: "Database", href: "/dashboard/db", icon: "file-tray" },
   { type: "link", name: "Http", href: "/dashboard/http", icon: "cloud-done" },
-  { type: "link", name: "Notification", href: "/dashboard/notification", icon: "notifications" },
+  {
+    type: "link",
+    name: "Notification",
+    href: "/dashboard/notification",
+    icon: "notifications",
+  },
   {
     type: "link",
     name: "Common Dialog",
@@ -159,9 +170,7 @@ const navigations = props.items || [
           >
             <ion-icon
               class="block text-xl px-3"
-              :name="`${item.icon}${
-                isSameRoute(item) ? '' : '-outline'
-              }`"
+              :name="`${item.icon}${isSameRoute(item) ? '' : '-outline'}`"
             ></ion-icon>
             <span class="block md:group-mactive:hidden">{{ item.name }}</span>
           </RouterLink>

@@ -3,23 +3,32 @@ import { inject, ref } from "vue";
 import MButton from "../../components/MButton.vue";
 import MPanel from "../../components/MPanel.vue";
 
-const data = ref('');
+const data = ref("");
 
 const mHttp = inject("mhttp");
 const createRequest = async () => {
-  const client = mHttp.createHttpClient('http://ip-api.com');
+  const client = mHttp.createHttpClient("http://ip-api.com");
 
-  const res = await client.get('/json');
+  const res = await client.get("/json");
 
-  data.value = res.config.method.toUpperCase() + ' ' + res.request.responseURL + ' ' + res.status + '\n' + JSON.stringify(res.data, 0, 2);
-}
+  data.value =
+    res.config.method.toUpperCase() +
+    " " +
+    res.request.responseURL +
+    " " +
+    res.status +
+    "\n" +
+    JSON.stringify(res.data, 0, 2);
+};
 </script>
 
 <template>
   <h1 class="text-3xl mt-4 font-semibold">Http</h1>
 
   <MPanel>
-    <MButton variant="primary" @click="createRequest()">Create a request</MButton>
+    <MButton variant="primary" @click="createRequest()"
+      >Create a request</MButton
+    >
 
     <pre v-if="data" class="mt-4">{{ data }}</pre>
   </MPanel>

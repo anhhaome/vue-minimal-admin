@@ -89,6 +89,11 @@ const router = createRouter({
           component: () => import("../views/dashboard/NotificationView.vue"),
         },
         {
+          path: "pagination",
+          name: "Pagination",
+          component: () => import("../views/dashboard/PaginationView.vue"),
+        },
+        {
           path: "common-dialog",
           name: "Common Dialog",
           component: () => import("../views/dashboard/CommonDialogView.vue"),

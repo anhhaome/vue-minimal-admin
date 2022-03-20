@@ -1,5 +1,5 @@
 <script setup>
-import MListItem from './MListItem.vue';
+import MListItem from "./MListItem.vue";
 const props = defineProps(["items"]);
 </script>
 

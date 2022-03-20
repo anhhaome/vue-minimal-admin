@@ -29,25 +29,21 @@ defineExpose({
 });
 
 const isCurrent = (node) => {
-  if (node === dropdownWrapper.value)
-    return true;
+  if (node === dropdownWrapper.value) return true;
 
-  if (node.parentElement)
-    return isCurrent(node.parentElement);
+  if (node.parentElement) return isCurrent(node.parentElement);
 
   return false;
-}
+};
 
 const handleWindowClick = (e) => {
-  if (!isCurrent(e.target))
-    handleBlur();
-}
-window.addEventListener('click', handleWindowClick);
+  if (!isCurrent(e.target)) handleBlur();
+};
+window.addEventListener("click", handleWindowClick);
 
 onUnmounted(() => {
-  window.removeEventListener('click', handleWindowClick);
+  window.removeEventListener("click", handleWindowClick);
 });
-
 </script>
 
 <template>
@@ -66,12 +62,17 @@ onUnmounted(() => {
         v-if="props.label !== false"
       >
         {{ props.label }}
-        <ion-icon :class="`${props.label ? 'ml-3' : ''}`" name="caret-down"></ion-icon
+        <ion-icon
+          :class="`${props.label ? 'ml-3' : ''}`"
+          name="caret-down"
+        ></ion-icon
       ></MButton>
     </slot>
 
     <div
-      :class="`rounded absolute mt-2 shadow-lg ${position === 'left' ? 'left-0' : 'right-0'} z-10`"
+      :class="`rounded absolute mt-2 shadow-lg ${
+        position === 'left' ? 'left-0' : 'right-0'
+      } z-10`"
       @click="handleBlur"
       v-if="isOpened"
     >
