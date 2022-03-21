@@ -10,6 +10,7 @@ defineProps(["items"]);
       :to="item.href"
       v-for="(item, index) in items"
       :active="item.active || null"
+      :key="item.text"
     >
       <ion-icon
         class="mr-2"

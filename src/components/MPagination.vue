@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import MButton from "./MButton.vue";
 
 const SKIP_PADDING = 2;

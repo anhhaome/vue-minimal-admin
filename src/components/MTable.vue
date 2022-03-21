@@ -48,6 +48,7 @@ reloadLabels();
       <th
         class="py-2 px-4 font-normal text-xs text-left uppercase"
         v-for="label in localLables"
+        :key="`head-${label}`"
       >
         <slot :name="`head(${label})`" v-bind="{ label }">
           <slot :name="`head()`" v-bind="{ label }">
@@ -70,7 +71,11 @@ reloadLabels();
           <slot name="beforerow" v-bind="{ row: null }"></slot>
         </td>
 
-        <td class="py-2 px-4" v-for="label in localLables">
+        <td
+          class="py-2 px-4"
+          v-for="label in localLables"
+          :key="`topcell-${label}`"
+        >
           <slot :name="`topcell(${label})`" v-bind="{ label }">
             <slot :name="`topcell()`" v-bind="{ label }"></slot>
           </slot>
@@ -109,7 +114,11 @@ reloadLabels();
           <slot name="beforerow" v-bind="{ row: null }"></slot>
         </td>
 
-        <td class="py-2 px-4" v-for="label in localLables">
+        <td
+          class="py-2 px-4"
+          v-for="label in localLables"
+          :key="`bottomcell-${label}`"
+        >
           <slot :name="`bottomcell(${label})`" v-bind="{ label }">
             <slot :name="`bottomcell()`" v-bind="{ label }"></slot>
           </slot>

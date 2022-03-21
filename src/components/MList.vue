@@ -8,7 +8,7 @@ const props = defineProps(["items"]);
     class="w-48 bg-white border rounded dark:bg-gray-800 dark:border-gray-700"
   >
     <slot>
-      <MListItem v-for="item in props.items">
+      <MListItem v-for="item in props.items" :key="item">
         {{ item }}
       </MListItem>
     </slot>
