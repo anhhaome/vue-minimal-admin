@@ -16,6 +16,7 @@ defineExpose({
         unwatch();
         dialog.value.hide();
         resolve(newValue);
+        result.value = undefined;
       });
     });
   },

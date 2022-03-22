@@ -1,15 +1,24 @@
 <script setup>
 import uniqid from "uniqid";
+import { onMounted, ref } from "vue";
 
-defineProps(["label", "type", "modelValue"]);
+const props = defineProps(["label", "type", "modelValue", 'focus']);
 defineEmits(["update:modelValue"]);
 
 const id = uniqid();
+const input = ref(null);
+
+onMounted(() => {
+  if (props.focus){
+    input.value.focus();
+  }
+});
 </script>
 
 <template>
   <div class="relative my-6">
     <input
+      ref="input"
       :type="type"
       :id="`minput-${id}`"
       :placeholder="label"
