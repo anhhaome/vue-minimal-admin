@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
 import MButton from "./MButton.vue";
 
 const props = defineProps(["label", "variant"]);
-defineEmits(["close"]);
+const emit = defineEmits(["close"]);
 
 const isOpened = ref(false);
 
@@ -20,6 +20,21 @@ defineExpose({
   toggle() {
     isOpened.value = !isOpened.value;
   },
+});
+
+const cancelHotKey = e => {
+  if (e.key === 'Escape'){
+    isOpened.value = false;
+    emit('close');
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keyup', cancelHotKey);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keyup', cancelHotKey);
 });
 </script>
 
