@@ -4,13 +4,14 @@ import MButton from "../../components/MButton.vue";
 import MPanel from "../../components/MPanel.vue";
 
 const mDialog = inject("mdialog");
+const mNoti = inject('mnoti');
 
 const showConfirmDialog = async () => {
-  console.log(`Confirm dialog result: ${await mDialog.show("confirm")}`);
+  mNoti.push('info', `Confirm dialog result: ${await mDialog.show("confirm")}`);
 };
 
 const showInputDialog = async () => {
-  console.log(`Input dialog result: ${await mDialog.show("input")}`);
+  mNoti.push('info', `Input dialog result: ${await mDialog.show("input")}`);
 };
 </script>
 

@@ -5,52 +5,53 @@ import MButton from "../../components/MButton.vue";
 import MPanel from "../../components/MPanel.vue";
 
 const db = inject("mdb");
+const mNoti = inject('mnoti');
 const step = ref(1);
 
 const initDb = async () => {
-  console.log("Start init...");
+  mNoti.push('success', "Start init...");
   await db.init("demo", 2, {
     messages: "++id,name,content",
   });
-  console.log("...init done!");
+  mNoti.push('success', "...init done!");
   step.value = 2;
 };
 
 const cleanDb = async () => {
-  console.log("Start clean...");
+  mNoti.push('success', "Start clean...");
   await db.clearDB();
-  console.log("...clean done!");
+  mNoti.push('success', "...clean done!");
   step.value = 3;
 };
 
 const importDb = async () => {
-  console.log("Start import...");
+  mNoti.push('success', "Start import...");
   await db.importDB(
     '{"messages":[{"name":"mintailor","content":"Hello from import.","id":1}]}'
   );
-  console.log("...import done!");
+  mNoti.push('success', "...import done!");
   step.value = 4;
 };
 
 const writeDb = async () => {
-  console.log("Start write...");
+  mNoti.push('success', "Start write...");
   await db.create("messages", { name: "mintailor", content: "A new content" });
-  console.log("...write done!");
+  mNoti.push('success', "...write done!");
   step.value = 5;
 };
 
 const exportDb = async () => {
-  console.log("Start export...");
+  mNoti.push('success', "Start export...");
   const json = await db.exportDB();
-  console.log("...export done!");
-  console.log(`Result: ${json}`);
+  mNoti.push('success', "...export done!");
+  mNoti.push('success', `Result: ${json}`);
   step.value = 6;
 };
 
 const deleteDb = async () => {
-  console.log("Start delete...");
+  mNoti.push('success', "Start delete...");
   await db.deleteDB();
-  console.log("...delete done!");
+  mNoti.push('success', "...delete done!");
   step.value = 1;
 };
 </script>
@@ -59,10 +60,6 @@ const deleteDb = async () => {
   <h1 class="text-3xl mt-4 font-semibold">Database</h1>
 
   <MPanel>
-    <MAlert variant="warn" class="italic" icon="alert-circle">
-      Open console to see the result!
-    </MAlert>
-
     <div class="mb-4">
       <span class="inline-block w-12">Step 1:</span>
       <MButton
