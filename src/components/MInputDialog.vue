@@ -29,7 +29,7 @@ defineExpose({
 <template>
   <MDialog ref="dialog" :label="false" @close="result = null">
     <div class="text-center">
-      <MInput label="Enter your input" v-model="inputValue" :focus="true"/>
+      <MInput label="Enter your input" v-model="inputValue" :focus="true" @keyup.enter="result = true" />
       <MButton variant="primary" @click="result = true">OK</MButton>
     </div>
   </MDialog>
