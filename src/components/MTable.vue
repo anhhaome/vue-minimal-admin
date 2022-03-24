@@ -93,8 +93,8 @@ reloadLabels();
         </td>
 
         <td class="py-2 px-4" v-for="label in localLables">
-          <slot :name="`cell(${label})`" v-bind="{ label, value: row[label] }">
-            <slot :name="`cell()`" v-bind="{ label, value: row[label] }">
+          <slot :name="`cell(${label})`" v-bind="{ label, value: row[label], row }">
+            <slot :name="`cell()`" v-bind="{ label, value: row[label], row }">
               {{ row[label] }}
             </slot>
           </slot>
