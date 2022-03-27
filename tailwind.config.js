@@ -17,7 +17,7 @@ module.exports = {
       ...colors,
     },
     fontFamily: {
-      sans: ["PoppinsVN", "serif"],
+      sans: ["PoppinsVN", "sans-serif"],
       mono: ['"Fira Code"'],
     },
     extend: {},

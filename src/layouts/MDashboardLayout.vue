@@ -45,6 +45,12 @@ const navigations = props.items || [
     href: "/dashboard/dropdown",
     icon: "caret-down",
   },
+  {
+    type: "link",
+    name: "Editor",
+    href: "/dashboard/editor",
+    icon: "create",
+  },
   { type: "link", name: "List", href: "/dashboard/list", icon: "list" },
   {
     type: "link",

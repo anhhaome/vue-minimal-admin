@@ -19,6 +19,7 @@ export { default as MLoader } from "./src/components/MLoader.vue";
 export { default as MNotification } from "./src/components/MNotification.vue";
 export { default as MPagination } from "./src/components/MPagination.vue";
 export { default as MPanel } from "./src/components/MPanel.vue";
+export { default as MRichEditor } from "./src/components/MRichEditor.vue";
 export { default as MTable } from "./src/components/MTable.vue";
 
 // Plugins

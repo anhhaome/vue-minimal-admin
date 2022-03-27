@@ -54,6 +54,11 @@ const router = createRouter({
           component: () => import("../views/dashboard/DropdownView.vue"),
         },
         {
+          path: "editor",
+          name: "Editor",
+          component: () => import("../views/dashboard/EditorView.vue"),
+        },
+        {
           path: "list",
           name: "List",
           component: () => import("../views/dashboard/ListView.vue"),
