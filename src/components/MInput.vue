@@ -2,7 +2,7 @@
 import uniqid from "uniqid";
 import { onMounted, ref } from "vue";
 
-const props = defineProps(["label", "type", "modelValue", 'focus']);
+const props = defineProps(["label", "type", "modelValue", 'focus', 'disabled']);
 defineEmits(["update:modelValue"]);
 
 const id = uniqid();
@@ -25,6 +25,7 @@ onMounted(() => {
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
       class="block border w-full p-3 rounded-lg peer outline-none focus:border-black dark:bg-gray-900 dark:border-gray-500 dark:focus:border-primary-500"
+      :disabled="disabled"
     />
     <label
       :for="`minput-${id}`"

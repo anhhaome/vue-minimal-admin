@@ -41,12 +41,12 @@ reloadLabels();
 <template>
   <table class="m-table table-fixed w-full">
     <thead class="bg-gray-50 dark:bg-gray-800 border-b dark:border-gray-700">
-      <th v-if="hasSlot('beforerow', $slots)">
+      <th v-if="hasSlot('beforerow', $slots)" class="beforerow">
         <slot name="beforerow" v-bind="{ row: null }"></slot>
       </th>
 
       <th
-        class="py-2 px-4 font-normal text-xs text-left uppercase"
+        :class="`head-${label} py-2 px-4 font-normal text-xs text-left uppercase`"
         v-for="label in localLables"
         :key="`head-${label}`"
       >
@@ -57,7 +57,7 @@ reloadLabels();
         </slot>
       </th>
 
-      <th v-if="hasSlot('afterrow', $slots)">
+      <th v-if="hasSlot('afterrow', $slots)" class="afterrow">
         <slot name="afterrow" v-bind="{ row: null }"></slot>
       </th>
     </thead>
@@ -67,12 +67,12 @@ reloadLabels();
         class="border-b dark:border-gray-700"
         v-if="hasSlot('topcell', $slots)"
       >
-        <td v-if="hasSlot('beforerow', $slots)">
+        <td v-if="hasSlot('beforerow', $slots)" class="beforerow">
           <slot name="beforerow" v-bind="{ row: null }"></slot>
         </td>
 
         <td
-          class="py-2 px-4"
+          :class="`topcell-${label} py-2 px-4`"
           v-for="label in localLables"
           :key="`topcell-${label}`"
         >
@@ -81,18 +81,18 @@ reloadLabels();
           </slot>
         </td>
 
-        <td v-if="hasSlot('afterrow', $slots)">
+        <td v-if="hasSlot('afterrow', $slots)" class="afterrow">
           <slot name="afterrow" v-bind="{ row: null }"></slot>
         </td>
       </tr>
 
       <!-- body cell -->
       <tr class="border-b dark:border-gray-700" v-for="row of props.data">
-        <td v-if="hasSlot('beforerow', $slots)">
+        <td v-if="hasSlot('beforerow', $slots)" class="beforerow">
           <slot name="beforerow" v-bind="{ row }"></slot>
         </td>
 
-        <td class="py-2 px-4" v-for="label in localLables">
+        <td :class="`cell-${label} py-2 px-4`" v-for="label in localLables">
           <slot :name="`cell(${label})`" v-bind="{ label, value: row[label], row }">
             <slot :name="`cell()`" v-bind="{ label, value: row[label], row }">
               {{ row[label] }}
@@ -100,7 +100,7 @@ reloadLabels();
           </slot>
         </td>
 
-        <td v-if="hasSlot('afterrow', $slots)">
+        <td v-if="hasSlot('afterrow', $slots)" class="afterrow">
           <slot name="afterrow" v-bind="{ row }"></slot>
         </td>
       </tr>
@@ -110,12 +110,12 @@ reloadLabels();
         class="border-b dark:border-gray-700"
         v-if="hasSlot('bottomcell', $slots)"
       >
-        <td v-if="hasSlot('beforerow', $slots)">
+        <td v-if="hasSlot('beforerow', $slots)" class="beforerow">
           <slot name="beforerow" v-bind="{ row: null }"></slot>
         </td>
 
         <td
-          class="py-2 px-4"
+          :class="`bottomcell-${label} py-2 px-4`"
           v-for="label in localLables"
           :key="`bottomcell-${label}`"
         >
@@ -124,7 +124,7 @@ reloadLabels();
           </slot>
         </td>
 
-        <td v-if="hasSlot('afterrow', $slots)">
+        <td v-if="hasSlot('afterrow', $slots)" class="afterrow">
           <slot name="afterrow" v-bind="{ row: null }"></slot>
         </td>
       </tr>
