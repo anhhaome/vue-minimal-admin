@@ -3,7 +3,7 @@ import uniqid from "uniqid";
 import { onMounted, ref } from "vue";
 
 const props = defineProps(["label", "type", "modelValue", 'focus', 'disabled']);
-defineEmits(["update:modelValue"]);
+defineEmits(["update:modelValue", 'focus', 'blur']);
 
 const id = uniqid();
 const input = ref(null);
@@ -24,6 +24,8 @@ onMounted(() => {
       :placeholder="label"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
+      @focus="$emit('focus')"
+      @blur="$emit('blur')"
       class="block border w-full p-3 rounded-lg peer outline-none focus:border-black dark:bg-gray-900 dark:border-gray-500 dark:focus:border-primary-500"
       :disabled="disabled"
     />
