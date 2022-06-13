@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, ref } from "vue";
 
 import MButton from "./MButton.vue";
 
-const props = defineProps(["label", "variant", 'disableHotKey']);
+const props = defineProps(["label", "variant", 'disableHotKey', 'disableDefaultClose']);
 const emit = defineEmits(["close"]);
 
 const isOpened = ref(false);
@@ -25,14 +25,18 @@ defineExpose({
 
 const cancelHotKey = e => {
   if (e.key === 'Escape'){
-    isOpened.value = false;
+    if (!props.disableDefaultClose)
+      isOpened.value = false;
+
     emit('close');
   }
 }
 
 const handleClick = e => {
   if (e.target === dialog.value){
-    isOpened.value = false;
+    if (!props.disableDefaultClose)
+      isOpened.value = false;
+
     emit('close');
   }
 }
