@@ -13,7 +13,7 @@ function loop() {
 
     while (
       notifications.length > 0 &&
-      now - notifications[0].createdAt > 2000
+      now - notifications[0].createdAt > 5000
     ) {
       notifications.shift();
     }
