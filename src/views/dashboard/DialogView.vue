@@ -73,6 +73,22 @@ const handleDialogClick = function () {
       </MDialog>
     </div>
 
+    <h2 class="text-xl mb-2">Nested</h2>
+
+    <div class="mb-4">
+      <MDialog>
+        <MDialog>
+          <MDialog>
+            <MDialog>
+              <div v-html="demoContent"></div>
+            </MDialog>
+
+            <div v-html="demoContent"></div>
+          </MDialog>
+        </MDialog>
+      </MDialog>
+    </div>
+
     <h2 class="text-xl mb-2 mt-8">Props</h2>
 
     <div class="mb-4">

@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
 
 import MButton from "./MButton.vue";
 
@@ -70,7 +70,7 @@ onUnmounted(() => {
   </slot>
 
   <div
-    class="fixed h-screen w-screen top-0 left-0 z-30 overflow-auto p-4 myscroll select-none"
+    class="m-dialog fixed h-screen w-screen top-0 left-0 z-30 overflow-scroll p-4 myscroll select-none"
     v-if="isOpened"
     ref="dialog"
     @click="handleClick"
@@ -80,9 +80,29 @@ onUnmounted(() => {
       class="h-screen w-screen fixed top-0 left-0 z-10 bg-black bg-opacity-50 dark:bg-black dark:bg-opacity-80 pointer-events-none"
     ></label>
     <div
-      class="bg-white max-w-3xl w-full mx-auto my-12 p-4 rounded-lg relative z-30 dark:bg-[#1d2432] dark:border dark:border-[#292f3d] select-text"
+      class="m-content-dialog bg-white max-w-3xl w-full mx-auto my-12 p-4 rounded-lg relative z-30 dark:bg-[#1d2432] dark:border dark:border-[#292f3d] select-text"
     >
       <slot></slot>
     </div>
   </div>
 </template>
+
+<style lang="scss">
+.m-dialog {
+  .m-dialog .m-content-dialog {
+    @apply mt-20;
+
+    .m-dialog .m-content-dialog {
+      @apply mt-28;
+
+      .m-dialog .m-content-dialog {
+        @apply mt-36;
+
+        .m-dialog .m-content-dialog {
+          @apply mt-44;
+        }
+      }
+    }
+  }
+}
+</style>
