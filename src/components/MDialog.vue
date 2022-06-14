@@ -73,7 +73,7 @@ onUnmounted(() => {
     class="m-dialog fixed h-screen w-screen top-0 left-0 z-30 overflow-scroll p-4 myscroll select-none"
     v-if="isOpened"
     ref="dialog"
-    @click="handleClick"
+    @mousedown="handleClick"
   >
     <label
       for="m-control-dialog"

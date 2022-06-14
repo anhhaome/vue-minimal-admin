@@ -55,6 +55,24 @@ const onEditorReady = function(quill){
       font-size: .825rem;
       max-height: 500px;
       padding: 0.75rem;
+
+      img {
+        max-width: 50%;
+        margin: 1em auto;
+        @apply border rounded-lg;
+      }
+
+      p {
+        margin: 1em 0;
+      }
+
+      :first-child {
+        margin-top: 0;
+      }
+
+      :last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }

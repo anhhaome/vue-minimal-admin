@@ -24,13 +24,23 @@ defineExpose({
 </script>
 
 <template>
-  <MDialog ref="dialog" :label="false" @close="result = null">
-    <div class="text-center">
-      <h3 class="mb-4 text-lg">Are you confirm?</h3>
-      <MButton class="mx-2" @click="result = true" variant="primary"
-        >Yes</MButton
-      >
-      <MButton class="mx-2" @click="result = false">No</MButton>
-    </div>
-  </MDialog>
+  <div class="m-confirm-dialog">
+    <MDialog ref="dialog" :label="false" @close="result = null">
+      <div class="text-center">
+        <h3 class="mb-4 text-lg">Are you confirm?</h3>
+        <MButton class="mx-2" @click="result = true" variant="primary"
+          >Yes</MButton
+        >
+        <MButton class="mx-2" @click="result = false">No</MButton>
+      </div>
+    </MDialog>
+  </div>
 </template>
+
+<style lang="scss">
+.m-confirm-dialog {
+  .m-dialog .m-content-dialog {
+    @apply mt-52 max-w-lg;
+  }
+}
+</style>
