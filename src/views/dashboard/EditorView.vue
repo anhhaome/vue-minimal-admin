@@ -24,7 +24,5 @@ const richValue = ref('Hello Rich Text Editor by QuillJS');
       v-model="richValue"
       @insertImage="mNoti.push('info', 'Do custom insert image')"
     />
-
-    <MRichEditor />
   </MPanel>
 </template>
