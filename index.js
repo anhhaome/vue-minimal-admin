@@ -12,6 +12,7 @@ export { default as MDialog } from "./src/components/MDialog.vue";
 export { default as MDropdown } from "./src/components/MDropdown.vue";
 export { default as MInput } from "./src/components/MInput.vue";
 export { default as MInputDialog } from "./src/components/MInputDialog.vue";
+export { default as MIonIcon } from "./src/components/MIonIcon.vue";
 export { default as MLink } from "./src/components/MLink.vue";
 export { default as MList } from "./src/components/MList.vue";
 export { default as MListItem } from "./src/components/MListItem.vue";
