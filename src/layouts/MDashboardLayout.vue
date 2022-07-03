@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from "vue";
 import { RouterView, RouterLink, useRoute } from "vue-router";
-import AppLogo from "../components/AppLogo.vue";
 
 const props = defineProps(["items"]);
 
