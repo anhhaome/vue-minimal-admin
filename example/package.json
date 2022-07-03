@@ -6,6 +6,11 @@
     "build": "vite build",
     "preview": "vite preview --port 4173"
   },
+  "dependencies": {
+    "pinia": "^2.0.11",
+    "vue": "^3.2.29",
+    "vue-router": "^4.0.12"
+  },
   "devDependencies": {
     "@rugo-vn/vue": "^1.0.0",
     "@vitejs/plugin-vue": "^2.3.3",

@@ -25,7 +25,6 @@ Add `@rugo-vn/vue` package.
 
 ```bash
 cd your-project
-npm uninstall -S vue vue-router
 npm i
 npm i -D @rugo-vn/vue
 ```
