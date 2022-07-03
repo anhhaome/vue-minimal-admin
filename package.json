@@ -6,7 +6,7 @@
   "scripts": {
     "build:css": "npx tailwindcss -i ./src/index.css -o ./dist/style.css",
     "build:example": "cd example && npm i && BASE=/vue/ npm run build",
-    "deploy": "npm run build:example && push-dir --dir=example/dist --branch=gh-pages --cleanup"
+    "deploy": "push-dir --dir=example/dist --branch=gh-pages --cleanup"
   },
   "peerDependencies": {
     "pinia": "^2.0.11",
