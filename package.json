@@ -1,13 +1,14 @@
 {
   "name": "@rugo-vn/vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./src/index.js",
   "type": "module",
   "scripts": {
     "build:css": "npx tailwindcss -i ./src/index.css -o ./dist/style.css",
     "build:example": "cd example && npm i && BASE=/vue/ npm run build",
     "local:install": "npm i path-browserify dexie indexeddb-export-import animate.css axios pluralize sass-loader sass @vueup/vue-quill@beta nanoid",
-    "deploy": "push-dir --dir=example/dist --branch=gh-pages --cleanup"
+    "deploy": "push-dir --dir=example/dist --branch=gh-pages --cleanup",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "peerDependencies": {
     "pinia": "^2.0.11",
