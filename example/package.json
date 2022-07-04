@@ -14,7 +14,7 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@rugo-vn/vue": "v1.0.1",
+    "@rugo-vn/vue": "file:../",
     "@vitejs/plugin-vue": "^2.3.3",
     "vite": "^2.9.12"
   }

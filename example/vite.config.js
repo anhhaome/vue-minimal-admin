@@ -16,6 +16,6 @@ export default defineConfig({
     ]
   },
   optimizeDeps: {
-    include: ['@vueup/vue-quill']
+    include: ['@vueup/vue-quill', 'vue', 'vue-router']
   }
 });
