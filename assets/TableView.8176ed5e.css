@@ -1,0 +1,1 @@
+.my-table th:first-child,.my-table td:first-child{width:3em}.my-table th:first-child>div,.my-table td:first-child>div{display:flex;justify-content:center;width:100%;height:100%}.my-table th:last-child,.my-table td:last-child{width:3em}.my-table th:last-child>div,.my-table td:last-child>div{width:100%;height:100%}

@@ -1,0 +1,4 @@
+import{p as i,m,q as u,s as k,o as s,c as l,d as f,n as b,b as c,t as h,i as p}from"./index.15fff4fb.js";const g={class:"inline-flex items-center mr-4"},_=["id","checked"],y=["for"],V={__name:"MCheckbox",props:["label","variant","modelValue","indeterminate"],emits:["update:modelValue"],setup(n){const e=n,r=i(),a=m(null);return u(()=>{a.value.indeterminate=e.indeterminate||!1}),k(()=>e.indeterminate,t=>{a.value.indeterminate=t||!1}),(t,o)=>(s(),l("div",g,[f("input",{type:"checkbox",class:b(`m-checkbox ${n.variant||"secondary"}
+      w-4 h-4 border rounded
+      focus:ring-3
+      dark:bg-gray-900 dark:border-gray-500 dark:ring-offset-gray-900`),id:`mcheckbox-${c(r)}`,checked:e.modelValue,ref_key:"element",ref:a,onChange:o[0]||(o[0]=d=>t.$emit("update:modelValue",d.target.checked))},null,42,_),e.label?(s(),l("label",{key:0,class:"mt-0.5 select-none pl-2",for:`mcheckbox-${c(r)}`},h(e.label),9,y)):p("",!0)]))}};export{V as _};
