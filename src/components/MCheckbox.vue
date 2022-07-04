@@ -1,11 +1,11 @@
 <script setup>
-import uniqid from "uniqid";
 import { onMounted, ref, watch } from "vue";
+import { generateId } from '../utils';
 
 const props = defineProps(["label", "variant", "modelValue", "indeterminate"]);
 defineEmits(["update:modelValue"]);
 
-const id = uniqid();
+const id = generateId();
 const element = ref(null);
 
 onMounted(() => {
