@@ -8,10 +8,13 @@
   },
   "dependencies": {
     "sass": "^1.53.0",
-    "sass-loader": "^13.0.2"
+    "sass-loader": "^13.0.2",
+    "pinia": "^2.0.11",
+    "vue": "^3.2.29",
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@rugo-vn/vue": "file:../",
+    "@rugo-vn/vue": "v1.0.1",
     "@vitejs/plugin-vue": "^2.3.3",
     "vite": "^2.9.12"
   }

@@ -14,5 +14,8 @@ export default defineConfig({
     dedupe: [
       'vue'
     ]
+  },
+  optimizeDeps: {
+    include: ['@vueup/vue-quill']
   }
 });
