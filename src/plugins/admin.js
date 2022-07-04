@@ -1,5 +1,4 @@
-import { join } from 'path-browserify';
-import { h } from 'vue'
+import { h, reactive } from 'vue'
 
 import MAppLogo from '../components/MAppLogo.vue';
 
@@ -20,6 +19,15 @@ export default function({ logo }) {
         },
         render(){
           return h(MAppLogo, this.props);
+        }
+      });
+
+      app.provide('madmin', {
+        navs: reactive([]),
+
+        clearNavs(){
+          while (this.navs.length)
+            this.navs.shift();
         }
       });
     }

@@ -1,6 +1,6 @@
 <script setup>
-import uniqid from "uniqid";
 import { reactive } from "vue";
+import { generateId } from '../utils';
 
 const notifications = reactive([]);
 
@@ -28,7 +28,7 @@ function loop() {
 defineExpose({
   push(type, message) {
     notifications.push({
-      id: uniqid(),
+      id: generateId(),
       type,
       message,
       createdAt: new Date(),

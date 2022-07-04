@@ -34,6 +34,7 @@ npm i -D @rugo-vn/vue
 Create your own admin page: Visit `example` directory in our source for more information.
 
 ```bash
+npm run local:install
 cd example/
 npm i
 npm run dev

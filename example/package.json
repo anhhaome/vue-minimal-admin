@@ -7,12 +7,21 @@
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
+    "@vueup/vue-quill": "^1.0.0-beta.8",
+    "animate.css": "^4.1.1",
+    "axios": "^0.27.2",
+    "dexie": "^3.2.2",
+    "indexeddb-export-import": "^2.1.5",
+    "path-browserify": "^1.0.1",
     "pinia": "^2.0.11",
+    "pluralize": "^8.0.0",
+    "sass": "^1.53.0",
+    "sass-loader": "^13.0.2",
     "vue": "^3.2.29",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@rugo-vn/vue": "^1.0.0",
+    "@rugo-vn/vue": "file:../",
     "@vitejs/plugin-vue": "^2.3.3",
     "vite": "^2.9.12"
   }
