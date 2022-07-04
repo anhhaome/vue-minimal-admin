@@ -1,11 +1,11 @@
 <script setup>
-import uniqid from "uniqid";
 import { onMounted, ref } from "vue";
+import { generateId } from '../utils';
 
 const props = defineProps(["label", "type", "modelValue", 'focus', 'disabled']);
 defineEmits(["update:modelValue", 'focus', 'blur']);
 
-const id = uniqid();
+const id = generateId();
 const input = ref(null);
 
 onMounted(() => {
