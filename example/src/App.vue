@@ -64,6 +64,12 @@ const navs = [
     href: "/dashboard/editor",
     icon: "create",
   },
+  {
+    type: "link",
+    name: "Icon",
+    href: "/dashboard/icon",
+    icon: "cube",
+  },
   { type: "link", name: "List", href: "/dashboard/list", icon: "list" },
   {
     type: "link",

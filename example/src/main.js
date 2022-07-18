@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import { createAdminPlugin, MDbPlugin, MDialogPlugin, MHttpPlugin, MNotificationPlugin, MUtilsPlugin } from '@rugo-vn/vue';
+import { createAdminPlugin, MDbPlugin, MDialogPlugin, MHttpPlugin, MIonIcon, MNotificationPlugin, MUtilsPlugin } from '@rugo-vn/vue';
 
 import logoOnly from "./assets/images/logo-only.svg";
 import textOnly from "./assets/images/text-only.svg";
@@ -19,6 +19,8 @@ const admin = createAdminPlugin({
 
 // application
 const app = createApp(App);
+
+app.component('IonIcon', MIonIcon);
 
 app.use(admin);
 app.use(router);

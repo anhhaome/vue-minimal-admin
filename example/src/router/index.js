@@ -93,6 +93,11 @@ const router = createRouter({
           component: () => import("../views/dashboard/HttpView.vue"),
         },
         {
+          path: "icon",
+          name: "Icon",
+          component: () => import("../views/dashboard/IconView.vue"),
+        },
+        {
           path: "notification",
           name: "Notification",
           component: () => import("../views/dashboard/NotificationView.vue"),

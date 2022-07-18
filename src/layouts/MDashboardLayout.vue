@@ -28,7 +28,7 @@ const navigations = admin ? admin.navs : (props.items || []);
     >
       <div class="uppercase font-semibold tracking-wider">Settings</div>
       <label for="m-control-right-sidebar" class="cursor-pointer">
-        <ion-icon class="text-2xl" name="close"></ion-icon>
+        <ion-icon class="text-2xl" name="close" type="outline"></ion-icon>
       </label>
     </header>
 
@@ -95,7 +95,7 @@ const navigations = admin ? admin.navs : (props.items || []);
           >
             <ion-icon
               class="block text-xl px-3"
-              :name="`${item.icon}${isSameRoute(item) ? '' : '-outline'}`"
+              :name="item.icon" :type="isSameRoute(item) ? '' : 'outline'"
             ></ion-icon>
             <span class="block md:group-mactive:hidden">{{ item.name }}</span>
           </RouterLink>
@@ -118,7 +118,7 @@ const navigations = admin ? admin.navs : (props.items || []);
           for="m-control-left-sidebar"
           class="px-2 mx-4 flex items-center cursor-pointer"
         >
-          <ion-icon class="text-xl scale-[1.1]" name="menu-outline"></ion-icon>
+          <ion-icon class="text-xl scale-[1.1]" name="menu" type="outline"></ion-icon>
         </label>
         <slot name="topbar">
           <div class="h-16 px-4 flex items-center md:hidden">
@@ -131,7 +131,7 @@ const navigations = admin ? admin.navs : (props.items || []);
           for="m-control-right-sidebar"
           class="px-2 mx-4 flex items-center cursor-pointer"
         >
-          <ion-icon class="text-xl" name="settings-outline"></ion-icon>
+          <ion-icon class="text-xl" name="settings" type="outline"></ion-icon>
         </label>
       </header>
       <!-- TOPBAR CLOSED -->
