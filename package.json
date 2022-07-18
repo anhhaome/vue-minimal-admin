@@ -1,11 +1,13 @@
 {
   "name": "@rugo-vn/vue",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "./src/index.js",
   "type": "module",
   "scripts": {
     "build:css": "npx tailwindcss -i ./src/index.css -o ./dist/style.css",
     "build:example": "cd example && npm i && BASE=/vue/ npm run build",
+    "build:icon": "node src/generate.js",
+    "build": "npm run build:css && npm run build:icon && npm run build:example",
     "local:install": "npm i path-browserify dexie indexeddb-export-import animate.css axios pluralize sass-loader sass @vueup/vue-quill@beta nanoid",
     "deploy": "push-dir --dir=example/dist --branch=gh-pages --cleanup",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
@@ -30,11 +32,13 @@
     "indexeddb-export-import": "^2.1.5",
     "jsdom": "^19.0.0",
     "nanoid": "^4.0.0",
+    "pascalcase": "^2.0.0",
     "path-browserify": "^1.0.1",
     "pluralize": "^8.0.0",
     "postcss": "^8.4.7",
     "prettier": "^2.5.1",
     "push-dir": "^0.4.1",
+    "rimraf": "^3.0.2",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
     "start-server-and-test": "^1.14.0",

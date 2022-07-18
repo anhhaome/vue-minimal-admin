@@ -10,7 +10,7 @@ defineProps(['icon', 'text', "size", "responsive"]); // null, 'lg'
       :src="icon"
     />
     <img
-      :class="`${size === 'lg' ? 'ml-4 h-9' : 'ml-4 h-6'} w-auto
+      :class="`${size === 'lg' ? 'h-10' : 'h-7'} w-auto
       ${responsive ? 'md:group-mactive:hidden' : ''}
       dark:invert`"
       alt="Mintailor Text Only"
