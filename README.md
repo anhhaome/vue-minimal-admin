@@ -2,10 +2,6 @@
 
 @rugo-vn/vue
 
-## About
-
-All of components using `R` character as prefix.
-
 ## Usage
 
 1. Create your own Vue 3 project:
@@ -27,7 +23,7 @@ npm i
 3. Install TailwindCSS and more packages:
 
 ```bash
-npm install -D tailwindcss postcss autoprefixer animate.css
+npm install -D tailwindcss postcss autoprefixer animate.css @rugo-vn/vue
 npx tailwindcss init -p
 ```
 
@@ -87,16 +83,22 @@ module.exports = {
 @tailwind utilities;
 ```
 
-6. Import CSS:
+6. Import CSS and plugin in `./src/main.js`:
 
 ```js
 import { createApp } from 'vue'
+import RugoVue from '@rugo-vn/vue'
+
 import App from './App.vue'
 
 import '@rugo-vn/vue/dist/index.css'
 import './index.css'
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+app.use(RugoVue);
+
+app.mount('#app')
 ```
 
 7. Copy assets:
@@ -105,6 +107,17 @@ createApp(App).mount('#app')
 cp -r ./node_modules/@rugo-vn/vue/dist/assets ./public
 cp ./node_modules/@rugo-vn/vue/dist/index.html ./index.html
 ```
+
+## Docs
+
+### About
+
+All of components using `R` character as prefix.
+
+### Layers
+
+- `0` - Background.
+- `50` - RScreenLoader.
 
 ## License
 
