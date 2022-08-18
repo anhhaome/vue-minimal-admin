@@ -1,34 +1,16 @@
-import { createApp } from 'vue';
-import { createAdminPlugin, MDbPlugin, MDialogPlugin, MHttpPlugin, MIonIcon, MNotificationPlugin, MUtilsPlugin } from '@rugo-vn/vue';
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 
-import logoOnly from "./assets/images/logo-only.svg";
-import textOnly from "./assets/images/text-only.svg";
+import App from './App.vue'
+import router from './router'
+import RugoVue from '@rugo-vn/vue'
 
-import App from './App.vue';
-import router from './router';
+import '@rugo-vn/vue/dist/index.css'
+import './index.css'
 
-// rugo
-import '@rugo-vn/vue/dist/style.css';
+const app = createApp(App)
 
-const admin = createAdminPlugin({
-  logo: {
-    icon: logoOnly,
-    text: textOnly
-  }
-});
-
-// application
-const app = createApp(App);
-
-app.component('IonIcon', MIonIcon);
-
-app.use(admin);
-app.use(router);
-
-app.use(MDbPlugin);
-app.use(MDialogPlugin);
-app.use(MHttpPlugin);
-app.use(MNotificationPlugin);
-app.use(MUtilsPlugin);
-
-app.mount('#app');
+app.use(createPinia())
+app.use(RugoVue)
+app.use(router)
+app.mount('#app')

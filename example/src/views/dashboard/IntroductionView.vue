@@ -1,5 +1,5 @@
 <script setup>
-import { MPanel, MList, MListItem } from '@rugo-vn/vue';
+// import AppLogo from "../../components/AppLogo.vue";
 </script>
 
 <template>
@@ -7,14 +7,4 @@ import { MPanel, MList, MListItem } from '@rugo-vn/vue';
     <AppLogo size="lg" />
   </h1>
   <p class="mt-2">A Minimal Tailwind CSS Components</p>
-  
-  <MPanel>
-    <h2 class="text-xl mb-4">New features</h2>
-    
-    <MList>
-      <MListItem>
-        <RouterLink to="/dashboard/icon">Icons</RouterLink>
-      </MListItem>
-    </MList>
-  </MPanel>
 </template>

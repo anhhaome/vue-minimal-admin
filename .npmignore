@@ -4,9 +4,14 @@
 
 # Dependencies
 node_modules
+package-lock.json
 
 # Test
 coverage
 
-# Example
+# Build
+build
+
+# Source
+src
 example

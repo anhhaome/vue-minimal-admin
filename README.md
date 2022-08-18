@@ -1,50 +1,111 @@
-# @rugo-vn/vue
+# Rugo Vue
+
+@rugo-vn/vue
+
+## About
+
+All of components using `R` character as prefix.
 
 ## Usage
 
-Create your app:
+1. Create your own Vue 3 project:
 
 ```bash
 npm init vue@latest
-```
-
-```
-Vue.js - The Progressive JavaScript Framework
-
-✔ Project name: … your-project
-✔ Add TypeScript? … [No] / Yes
-✔ Add JSX Support? … [No] / Yes
-✔ Add Vue Router for Single Page Application development? … No / [Yes]
-✔ Add Pinia for state management? … [No] / Yes
-✔ Add Vitest for Unit Testing? … [No] / Yes
-✔ Add Cypress for both Unit and End-to-End testing? … [No] / Yes
-✔ Add ESLint for code quality? … [No] / Yes
-```
-
-Add `@rugo-vn/vue` package.
-
-```bash
-cd your-project
+cd <your-project>
 npm i
-npm i -D @rugo-vn/vue
 ```
 
-## Example
+2. Add `type` to `package.json`:
 
-Create your own admin page: Visit `example` directory in our source for more information.
+```json
+{
+  "type": "module"
+}
+```
+
+3. Install TailwindCSS and more packages:
 
 ```bash
-npm run local:install
-cd example/
-npm i
-npm run dev
+npm install -D tailwindcss postcss autoprefixer animate.css
+npx tailwindcss init -p
 ```
 
-## Development
+4. Config TailwindCSS content in `tailwind.config.[js|cjs]`
 
-For building `@rugo-vn/vue` only.
+```js
+const colors = require("tailwindcss/colors");
+
+/** @type {import('tailwindcss').Config} */ 
+module.exports = {
+  darkMode: "class",
+  content: [
+    "./node_modules/@rugo-vn/vue/dist/**/*.js",
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
+  theme: {
+    colors: {
+      primary: colors.cyan,
+      secondary: colors.stone,
+      danger: colors.rose,
+      info: colors.indigo,
+      warn: colors.amber,
+      success: colors.emerald,
+      ...colors,
+    },
+    fontFamily: {
+      sans: ["PoppinsVN", "sans-serif"],
+      mono: ['"Fira Code"'],
+    },
+    extend: {},
+    fontSize: {
+      xs: ".75rem",
+      sm: ".825rem",
+      base: "1rem",
+      lg: "1.125rem",
+      xl: "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem",
+      "6xl": "4rem",
+      "7xl": "5rem",
+    },
+  },
+  plugins: [
+    require('@rugo-vn/vue/dist/plugin.[js|cjs]')
+  ],
+}
+```
+
+5. Create `./src/index.css`:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+6. Import CSS:
+
+```js
+import { createApp } from 'vue'
+import App from './App.vue'
+
+import '@rugo-vn/vue/dist/index.css'
+import './index.css'
+
+createApp(App).mount('#app')
+```
+
+7. Copy assets:
 
 ```bash
-npm run build:css
-npm run build:ionicons
+cp -r ./node_modules/@rugo-vn/vue/dist/assets ./public
+cp ./node_modules/@rugo-vn/vue/dist/index.html ./index.html
 ```
+
+## License
+
+MIT.

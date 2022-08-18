@@ -1,6 +1,7 @@
 # Tmp
 .cache
 .tmp
+.vscode
 
 # Dependencies
 node_modules
@@ -11,3 +12,4 @@ coverage
 
 # Build
 dist
+build
