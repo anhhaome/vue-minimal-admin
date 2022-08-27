@@ -1,10 +1,12 @@
 <script setup>
-// import AppLogo from "../../components/AppLogo.vue";
+import { useAppStore } from '../../stores/app';
+
+const appStore = useAppStore();
+appStore.view = 'Introduction';
 </script>
 
 <template>
-  <h1 class="mt-4 text-3xl flex items-center">
-    <AppLogo size="lg" />
-  </h1>
-  <p class="mt-2">A Minimal Tailwind CSS Components</p>
+  <RHeading>Introduction</RHeading>
+  <RHeading type="h2">@rugo-vn/vue</RHeading>
+  <p class="mt-2">A Vue Component Library with TailwindCSS.</p>
 </template>

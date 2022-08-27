@@ -11,17 +11,22 @@
     "build:library": "rollup -c",
     "build:icon": "node src/generate.js",
     "build": "npm run build:library && npm run build:icon",
-    "make-pack": "mkdir -p build && npm pack && mv rugo-vn-vue-* build/rugo-vn-vue.tgz",
+    "clean": "rm -rf build && rm -rf dist && npm run example:clean",
+    "doc:clean": "rm -rf docs/*",
+    "doc:generate": "node src/doc.js",
     "example:install": "npm i && npm run build && npm run make-pack && cd example && npm i",
     "example:clean": "cd example && rm -rf node_modules && rm -rf package-lock.json",
     "example": "cd example && npm run dev",
-    "clean": "rm -rf build && rm -rf dist && npm run example:clean",
-    "publish:beta": "npm publish --access public --tag beta"
+    "make-pack": "mkdir -p build && npm pack && mv rugo-vn-vue-* build/rugo-vn-vue.tgz",
+    "publish:beta": "npm publish --access public --tag beta",
+    "publish:release": "npm publish --access public"
   },
   "peerDependencies": {
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "decamelize": "^6.0.0",
+    "ejs": "^3.1.8",
     "pascalcase": "^2.0.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.78.0",

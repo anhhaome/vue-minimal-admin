@@ -32,6 +32,13 @@ npx tailwindcss init -p
 ```js
 const colors = require("tailwindcss/colors");
 
+// delete unsupported colors
+delete colors.lightBlue;
+delete colors.warmGray;
+delete colors.coolGray;
+delete colors.blueGray;
+delete colors.trueGray;
+
 /** @type {import('tailwindcss').Config} */ 
 module.exports = {
   darkMode: "class",
@@ -118,6 +125,11 @@ All of components using `R` character as prefix.
 
 - `0` - Background.
 - `50` - RScreenLoader.
+
+### Components
+
+- [RButton](./docs/r-button.md)
+- [RInput](./docs/r-input.md)
 
 ## License
 

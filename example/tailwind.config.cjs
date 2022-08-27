@@ -1,5 +1,12 @@
 const colors = require("tailwindcss/colors");
 
+// delete unsupported colors
+delete colors.lightBlue;
+delete colors.warmGray;
+delete colors.coolGray;
+delete colors.blueGray;
+delete colors.trueGray;
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
