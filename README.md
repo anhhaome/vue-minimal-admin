@@ -4,6 +4,8 @@
 
 ## Usage
 
+### Vue 3
+
 1. Create your own Vue 3 project:
 
 ```bash
@@ -113,6 +115,86 @@ app.mount('#app')
 ```bash
 cp -r ./node_modules/@rugo-vn/vue/dist/assets ./public
 cp ./node_modules/@rugo-vn/vue/dist/index.html ./index.html
+```
+
+### Nuxt 3
+
+1. Create your own Nuxt 3 project:
+
+```bash
+npx nuxi init <your-project>
+cd <your-project>
+npm install
+```
+
+2. Add `type` to `package.json`:
+
+```json
+{
+  "type": "module"
+}
+```
+
+3. Install TailwindCSS and more packages:
+
+```bash
+npm install -D tailwindcss postcss@latest autoprefixer@latest animate.css @rugo-vn/vue
+npx tailwindcss init -p
+```
+
+4. Config TailwindCSS content in `tailwind.config.[js|cjs]`
+
+(Same as previous Vue 3 article).
+
+5. Create `./assets/css/main.css`:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+6. Create `postcss.config.js`
+
+```js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+```
+
+7. Import files in `nuxt.config.ts`
+
+```js
+export default {
+  css: [
+    '@/assets/css/main.css',
+    '@rugo-vn/vue/dist/index.css',
+  ],
+  build: {
+    postcss: {
+      postcssOptions: require('./postcss.config.js'),
+    },
+  }
+}
+```
+
+8. Create a `plugins/rugo.js` plugin.
+
+```js
+import RugoVue from '@rugo-vn/vue/dist/library.mjs';
+
+export default defineNuxtPlugin(nuxtApp => {
+  nuxtApp.vueApp.use(RugoVue);
+});
+```
+
+9. Run your code
+
+```bash
+npm run dev -- -o
 ```
 
 ## Docs
