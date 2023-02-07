@@ -1,46 +1,51 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
-    { path: "/", redirect: "/auth/signin" },
+    { path: '/', redirect: '/auth/signin' },
     {
-      path: "/auth",
-      component: () => import("../layouts/RAuthLayout.vue"),
+      path: '/auth',
+      component: () => import('../layouts/RAuthLayout.vue'),
       children: [
-        { path: "", redirect: "/auth/signin" },
+        { path: '', redirect: '/auth/signin' },
         {
-          path: "signin",
-          component: () => import("../views/auth/SignInView.vue"),
+          path: 'signin',
+          component: () => import('../views/auth/SignInView.vue'),
         },
         {
-          path: "signout",
-          redirect: "/auth/signin",
-        }
+          path: 'signout',
+          redirect: '/auth/signin',
+        },
       ],
     },
     {
-      path: "/dashboard",
-      component: () => import("../layouts/RDashboardLayout.vue"),
+      path: '/dashboard',
+      component: () => import('../layouts/RDashboardLayout.vue'),
       children: [
         {
-          path: "",
-          name: "Introduction",
-          component: () => import("../views/dashboard/IntroductionView.vue"),
+          path: '',
+          name: 'Introduction',
+          component: () => import('../views/dashboard/IntroductionView.vue'),
         },
         {
-          path: "button",
-          name: "Button",
-          component: () => import("../views/dashboard/ButtonView.vue"),
+          path: 'button',
+          name: 'Button',
+          component: () => import('../views/dashboard/ButtonView.vue'),
         },
         {
-          path: "input",
-          name: "Input",
-          component: () => import("../views/dashboard/InputView.vue"),
+          path: 'input',
+          name: 'Input',
+          component: () => import('../views/dashboard/InputView.vue'),
         },
-      ]
-    }
-  ]
-})
+        {
+          path: 'icon',
+          name: 'Icon',
+          component: () => import('../views/dashboard/IconView.vue'),
+        },
+      ],
+    },
+  ],
+});
 
-export default router
+export default router;

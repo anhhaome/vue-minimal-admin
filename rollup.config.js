@@ -38,5 +38,18 @@ export default [
         file: 'dist/plugin.cjs'
       }
     ]
-  }
+  },
+  {
+    input: 'src/components/RIcon/icons.js',
+    output: [
+      {
+        format: 'esm',
+        file: 'dist/icon-names.mjs'
+      },
+      {
+        format: 'cjs',
+        file: 'dist/icon-names.js'
+      }
+    ]
+  },
 ]
