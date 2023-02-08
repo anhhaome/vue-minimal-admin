@@ -1,4 +1,4 @@
-# RInput
+# RSideNav
 
 ## Slots
 
@@ -10,12 +10,8 @@
 
 | Name | Type | Description |
 |-|-|-|
-| `label` | `` |  |
-| `type` | `` |  |
+| `items` | `` |  |
 | `modelValue` | `` |  |
-| `focus` | `` |  |
-| `disabled` | `` |  |
-| `readonly` | `` |  |
 
 
 ## Events
@@ -23,8 +19,6 @@
 | Name | Description |
 |-|-|
 | `update:modelValue` |  |
-| `focus` |  |
-| `blur` |  |
 
 
 ## Methods

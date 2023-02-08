@@ -1,4 +1,4 @@
-# RInput
+# RHeading
 
 ## Slots
 
@@ -10,21 +10,13 @@
 
 | Name | Type | Description |
 |-|-|-|
-| `label` | `` |  |
 | `type` | `` |  |
-| `modelValue` | `` |  |
-| `focus` | `` |  |
-| `disabled` | `` |  |
-| `readonly` | `` |  |
 
 
 ## Events
 
 | Name | Description |
 |-|-|
-| `update:modelValue` |  |
-| `focus` |  |
-| `blur` |  |
 
 
 ## Methods

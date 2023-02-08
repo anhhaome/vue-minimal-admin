@@ -1,4 +1,4 @@
-# RInput
+# RCheckbox
 
 ## Slots
 
@@ -10,12 +10,11 @@
 
 | Name | Type | Description |
 |-|-|-|
-| `label` | `` |  |
 | `type` | `` |  |
+| `label` | `` |  |
+| `variant` | `` |  |
 | `modelValue` | `` |  |
-| `focus` | `` |  |
-| `disabled` | `` |  |
-| `readonly` | `` |  |
+| `indeterminate` | `` |  |
 
 
 ## Events
@@ -23,8 +22,6 @@
 | Name | Description |
 |-|-|
 | `update:modelValue` |  |
-| `focus` |  |
-| `blur` |  |
 
 
 ## Methods

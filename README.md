@@ -32,7 +32,7 @@ npx tailwindcss init -p
 4. Config TailwindCSS content in `tailwind.config.[js|cjs]`
 
 ```js
-const colors = require("tailwindcss/colors");
+const colors = require('tailwindcss/colors');
 
 // delete unsupported colors
 delete colors.lightBlue;
@@ -41,13 +41,13 @@ delete colors.coolGray;
 delete colors.blueGray;
 delete colors.trueGray;
 
-/** @type {import('tailwindcss').Config} */ 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
+  darkMode: 'class',
   content: [
-    "./node_modules/@rugo-vn/vue/dist/**/*.js",
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    './node_modules/@rugo-vn/vue/dist/**/*.js',
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
   ],
   theme: {
     colors: {
@@ -60,28 +60,26 @@ module.exports = {
       ...colors,
     },
     fontFamily: {
-      sans: ["PoppinsVN", "sans-serif"],
+      sans: ['PoppinsVN', 'sans-serif'],
       mono: ['"Fira Code"'],
     },
     extend: {},
     fontSize: {
-      xs: ".75rem",
-      sm: ".825rem",
-      base: "1rem",
-      lg: "1.125rem",
-      xl: "1.25rem",
-      "2xl": "1.5rem",
-      "3xl": "1.875rem",
-      "4xl": "2.25rem",
-      "5xl": "3rem",
-      "6xl": "4rem",
-      "7xl": "5rem",
+      xs: '.75rem',
+      sm: '.825rem',
+      base: '1rem',
+      lg: '1.125rem',
+      xl: '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.875rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      '6xl': '4rem',
+      '7xl': '5rem',
     },
   },
-  plugins: [
-    require('@rugo-vn/vue/dist/plugin.[js|cjs]')
-  ],
-}
+  plugins: [require('@rugo-vn/vue/dist/plugin.[js|cjs]')],
+};
 ```
 
 5. Create `./src/index.css`:
@@ -95,19 +93,19 @@ module.exports = {
 6. Import CSS and plugin in `./src/main.js`:
 
 ```js
-import { createApp } from 'vue'
-import RugoVue from '@rugo-vn/vue'
+import { createApp } from 'vue';
+import RugoVue from '@rugo-vn/vue';
 
-import App from './App.vue'
+import App from './App.vue';
 
-import '@rugo-vn/vue/dist/index.css'
-import './index.css'
+import '@rugo-vn/vue/dist/index.css';
+import './index.css';
 
 const app = createApp(App);
 
 app.use(RugoVue);
 
-app.mount('#app')
+app.mount('#app');
 ```
 
 7. Copy assets:
@@ -162,23 +160,20 @@ module.exports = {
     tailwindcss: {},
     autoprefixer: {},
   },
-}
+};
 ```
 
 7. Import files in `nuxt.config.ts`
 
 ```js
 export default {
-  css: [
-    '@/assets/css/main.css',
-    '@rugo-vn/vue/dist/index.css',
-  ],
+  css: ['@/assets/css/main.css', '@rugo-vn/vue/dist/index.css'],
   build: {
     postcss: {
       postcssOptions: require('./postcss.config.js'),
     },
-  }
-}
+  },
+};
 ```
 
 8. Create a `plugins/rugo.js` plugin.
@@ -186,7 +181,7 @@ export default {
 ```js
 import RugoVue from '@rugo-vn/vue/dist/library.mjs';
 
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(RugoVue);
 });
 ```
@@ -211,7 +206,15 @@ All of components using `R` character as prefix.
 ### Components
 
 - [RButton](./docs/r-button.md)
+- [RCentralLayout](./docs/r-central-layout.md)
+- [RCheckbox](./docs/r-checkbox.md)
+- [RDialog](./docs/r-dialog.md)
+- [RHeading](./docs/r-heading.md)
+- [RIcon](./docs/r-icon.md)
 - [RInput](./docs/r-input.md)
+- [RPanel](./docs/r-panel.md)
+- [RSideNav](./docs/r-side-nav.md)
+- [RTopBar](./docs/r-top-bar.md)
 
 ## License
 

@@ -6,8 +6,6 @@ appStore.view = 'Button';
 </script>
 
 <template>
-  <RHeading>Button</RHeading>
-
   <RPanel>
     <RHeading type="h2">Simple</RHeading>
 

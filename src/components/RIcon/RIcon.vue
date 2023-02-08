@@ -1,12 +1,11 @@
 <script setup>
-import DocumentIcon from '@rugo-vn/vue/dist/ionicons/DocumentIcon.vue';
 import { computed, defineAsyncComponent } from 'vue';
 import { icons } from './icons';
 
 const props = defineProps(['name']);
 
 const view = computed(() => {
-  if (icons.indexOf(props.name) === -1) return DocumentIcon;
+  if (icons.indexOf(props.name) === -1) props.name = 'document';
 
   const name = (props.name || '')
     .replace(/[^a-z0-9]+/gi, ' ')

@@ -43,6 +43,16 @@ const router = createRouter({
           name: 'Icon',
           component: () => import('../views/dashboard/IconView.vue'),
         },
+        {
+          path: 'dialog',
+          name: 'Dialog',
+          component: () => import('../views/dashboard/DialogView.vue'),
+        },
+        {
+          path: 'notification',
+          name: 'Notification',
+          component: () => import('../views/dashboard/NotificationView.vue'),
+        },
       ],
     },
   ],

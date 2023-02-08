@@ -1,13 +1,10 @@
 <script setup>
-import { markRaw, reactive, ref, watch } from 'vue';
+import { reactive, ref, watch } from 'vue';
 import { RouterView } from 'vue-router';
 
-import LogOutIcon from '@rugo-vn/vue/dist/ionicons/LogOutIcon.vue';
-import HomeIcon from '@rugo-vn/vue/dist/ionicons/HomeIcon.vue';
-import PlayCircleIcon from '@rugo-vn/vue/dist/ionicons/PlayCircleIcon.vue';
-import BrushIcon from '@rugo-vn/vue/dist/ionicons/BrushIcon.vue';
 import MenuIcon from '@rugo-vn/vue/dist/ionicons/MenuIcon.vue';
 import SettingsIcon from '@rugo-vn/vue/dist/ionicons/SettingsIcon.vue';
+import RButtonDoc from '../components/docs/RButtonDoc.vue';
 
 import { useAppStore } from '../stores/app';
 
@@ -33,6 +30,18 @@ const navigations = reactive([
     name: 'Input',
     href: '/dashboard/input',
     icon: 'terminal',
+  },
+  {
+    type: 'link',
+    name: 'Dialog',
+    href: '/dashboard/dialog',
+    icon: 'layers',
+  },
+  {
+    type: 'link',
+    name: 'Notification',
+    href: '/dashboard/notification',
+    icon: 'notifications',
   },
   {
     type: 'link',
@@ -79,7 +88,17 @@ const handleAction = (type) => {
         :rightIcon="SettingsIcon"
       />
       <div class="p-4">
-        <RouterView />
+        <RHeading type="h1">{{ appStore.view }}</RHeading>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <RouterView />
+          </div>
+
+          <RPanel>
+            <RButtonDoc />
+          </RPanel>
+        </div>
       </div>
     </div>
   </div>

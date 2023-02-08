@@ -1,4 +1,4 @@
-# RInput
+# RDialog
 
 ## Slots
 
@@ -11,20 +11,16 @@
 | Name | Type | Description |
 |-|-|-|
 | `label` | `` |  |
-| `type` | `` |  |
-| `modelValue` | `` |  |
-| `focus` | `` |  |
-| `disabled` | `` |  |
-| `readonly` | `` |  |
+| `variant` | `` |  |
+| `disableHotKey` | `` |  |
+| `disableDefaultClose` | `` |  |
 
 
 ## Events
 
 | Name | Description |
 |-|-|
-| `update:modelValue` |  |
-| `focus` |  |
-| `blur` |  |
+| `close` |  |
 
 
 ## Methods
