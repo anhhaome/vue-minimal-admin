@@ -4,7 +4,7 @@ import { useAppStore } from '../../stores/app';
 import { icons } from '@rugo-vn/vue/dist/icon-names';
 
 const appStore = useAppStore();
-appStore.view = 'Icon';
+appStore.view = 'RIcon';
 
 const iconSearchName = ref('');
 const selectedName = ref('');
@@ -24,10 +24,8 @@ const doSelect = (name) => {
 </script>
 
 <template>
-  <RHeading>Icon</RHeading>
-
   <RPanel>
-    <RInput label="Search" v-model="iconSearchName" />
+    <RInput class="mt-0 mb-4" label="Search" v-model="iconSearchName" />
 
     <div
       class="fixed bottom-0 left-0 w-screen h-20 bg-white border-t flex items-center p-4"

@@ -1,27 +1,31 @@
-# <%= name %>
-
+<% if (slots.length) { %>
 ## Slots
 
 | Name | Description |
 |-|-|
 | `` |  |
+<% } %>
 
+<% if (props.length) { %>
 ## Props
 
 | Name | Type | Description |
 |-|-|-|
-<% for (let name of props) { _%>
-| `<%= name %>` | `` |  |
+<% for (let item of props) { _%>
+| `<%- item %>` | `<%- data[name]?.[item]?.type %>` | <%- data[name]?.[item]?.desc %> |
+<% } %>
 <% } %>
 
+<% if (emits.length) { %>
 ## Events
 
 | Name | Description |
 |-|-|
-<% for (let name of emits) { _%>
-| `<%= name %>` |  |
+<% for (let item of emits) { _%>
+| `<%- item %>` | <%- data[name]?.[item]?.desc %> |
+<% } %>
 <% } %>
 
-## Methods
+<!-- ## Methods -->
 
-## Example
+<!-- ## Example -->

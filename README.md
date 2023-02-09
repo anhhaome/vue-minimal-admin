@@ -213,6 +213,7 @@ All of components using `R` character as prefix.
 - [RIcon](./docs/r-icon.md)
 - [RInput](./docs/r-input.md)
 - [RPanel](./docs/r-panel.md)
+- [RNotification](./docs/r-notification.md)
 - [RSideNav](./docs/r-side-nav.md)
 - [RTopBar](./docs/r-top-bar.md)
 

@@ -2,7 +2,7 @@
 import { useAppStore } from '../../stores/app';
 
 const appStore = useAppStore();
-appStore.view = 'Button';
+appStore.view = 'RButton';
 </script>
 
 <template>

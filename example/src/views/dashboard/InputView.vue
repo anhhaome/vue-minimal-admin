@@ -2,12 +2,10 @@
 import { useAppStore } from '../../stores/app';
 
 const appStore = useAppStore();
-appStore.view = 'Input';
+appStore.view = 'RInput';
 </script>
 
 <template>
-  <RHeading>Input</RHeading>
-
   <RPanel>
     <RHeading type="h2">Simple</RHeading>
 

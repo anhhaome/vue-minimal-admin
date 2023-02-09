@@ -1,27 +1,15 @@
 <script setup>
 import { ref } from 'vue';
-import { LoremIpsum } from 'lorem-ipsum';
+import { lorem } from '../../utils';
 import { useAppStore } from '../../stores/app';
 
 const appStore = useAppStore();
 const refDialog = ref(null);
-const lorem = new LoremIpsum({
-  sentencesPerParagraph: {
-    max: 8,
-    min: 4,
-  },
-  wordsPerSentence: {
-    max: 16,
-    min: 4,
-  },
-});
 
-appStore.view = 'Dialog';
+appStore.view = 'RDialog';
 </script>
 
 <template>
-  <RHeading>Dialog</RHeading>
-
   <RPanel>
     <RHeading type="h3">Button</RHeading>
     <RDialog>Hello World</RDialog>
