@@ -9,12 +9,12 @@
 
 | Name | Type | Description |
 |-|-|-|
-| `label` | `` |  |
-| `type` | `` |  |
-| `modelValue` | `` |  |
-| `focus` | `` |  |
-| `disabled` | `` |  |
-| `readonly` | `` |  |
+| `label` | `string` | Label of input |
+| `type` | `string` | <ul><li><code>text</code></li><li><code>password</code></li><li><code>number</code></li><li><code>date</code></li><li><code>email</code></li></ul> |
+| `modelValue` | `string` | Bind value to the component. |
+| `focus` | `boolean` |  |
+| `disabled` | `boolean` | Disable the input. |
+| `readonly` | `boolean` | Readonly the input. |
 
 
 
@@ -23,9 +23,9 @@
 
 | Name | Description |
 |-|-|
-| `update:modelValue` |  |
+| `update:modelValue` | Fire when user enter the input. |
 | `focus` |  |
-| `blur` |  |
+| `blur` | Fire when it is blured. |
 
 
 

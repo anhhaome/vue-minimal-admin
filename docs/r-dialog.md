@@ -5,9 +5,9 @@
 
 ## Slots
 
-| Name | Description |
-|-|-|
-| `open` |  |
+| Name | Props | Description |
+|-|-|-|
+| `open` | `click` (type: `function`) will trigger click to show the dialog. |Splot for open button. |
 
 
 
@@ -16,10 +16,10 @@
 
 | Name | Type | Description |
 |-|-|-|
-| `label` | `` |  |
-| `variant` | `` |  |
-| `disableHotKey` | `` |  |
-| `disableDefaultClose` | `` |  |
+| `label` | `string` | Label for open button. |
+| `variant` | `string` | Variant for open button. See more at RButton. |
+| `disableHotKey` | `boolean` | Disable ESC keyboard for trigger close event. |
+| `disableDefaultClose` | `boolean` | Disable close dialog but still send close event. |
 
 
 
@@ -28,7 +28,7 @@
 
 | Name | Description |
 |-|-|
-| `close` |  |
+| `close` | Emit close event to parent when click cancel, click outside of dialog, press ESC button (when not `disableHotKey`). |
 
 
 
@@ -37,9 +37,9 @@
 
 | Name | Args | Description |
 |-|-|-|
-| `show` |  |  |
-| `hide` |  |  |
-| `toggle` |  |  |
+| `show` | `[]` | Show the dialog. |
+| `hide` | `[]` | Hide the dialog. |
+| `toggle` | `[]` | Toggle to other state. |
 
 
 

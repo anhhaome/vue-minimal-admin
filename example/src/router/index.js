@@ -63,6 +63,11 @@ const router = createRouter({
           name: 'Notification',
           component: () => import('../views/dashboard/NotificationView.vue'),
         },
+        {
+          path: 'others',
+          name: 'Others',
+          component: () => import('../views/dashboard/OtherView.vue'),
+        },
       ],
     },
   ],

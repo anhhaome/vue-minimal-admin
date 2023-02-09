@@ -1,10 +1,10 @@
 <% if (slots.length) { %>
 ## Slots
 
-| Name | Description |
-|-|-|
+| Name | Props | Description |
+|-|-|-|
 <% for (let item of slots) { _%>
-| `<%- item %>` | <%- data[name]?.[formatName(item)]?.desc %> |
+| `<%- item %>` | <%- data[name]?.[formatName(item)]?.props %> |<%- data[name]?.[formatName(item)]?.desc %> |
 <% } %>
 <% } %>
 

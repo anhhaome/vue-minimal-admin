@@ -9,7 +9,7 @@
 
 | Name | Type | Description |
 |-|-|-|
-| `type` | `` |  |
+| `type` | `string` | Heading style, from `h1` to `h6`, but `h3`, `h4`, `h5` have same size. |
 
 
 

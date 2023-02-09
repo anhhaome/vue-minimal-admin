@@ -32,5 +32,15 @@ appStore.view = 'RDialog';
         "
       ></div>
     </RDialog>
+
+    <RHeading class="mt-4" type="h3">Custom open slot</RHeading>
+    <RDialog>
+      <template #open="{ click }">
+        <a @click="click()" class="text-primary-500 underline cursor-pointer"
+          >Click me</a
+        >
+      </template>
+      Content
+    </RDialog>
   </RPanel>
 </template>
