@@ -1,6 +1,6 @@
 {
   "name": "@rugo-vn/vue",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "main": "dist/library.js",
   "module": "dist/library.mjs",
@@ -17,10 +17,12 @@
     "doc": "npm run doc:clean && npm run doc:generate",
     "example:install": "npm i && npm run build && npm run make-pack && cd example && npm i",
     "example:clean": "cd example && rm -rf node_modules && rm -rf package-lock.json",
-    "example": "cd example && npm run dev",
+    "example:build": "npm run example:clean && npm run example:install && cd example && npm run build",
+    "example": "npm run example:clean && npm run example:install && cd example && npm run dev",
     "make-pack": "mkdir -p build && npm pack && mv rugo-vn-vue-* build/rugo-vn-vue.tgz",
     "publish:beta": "npm publish --access public --tag beta",
-    "publish:release": "npm publish --access public"
+    "publish:release": "npm publish --access public",
+    "deploy": "npm run example:build && gh-pages -d example/dist"
   },
   "peerDependencies": {
     "vue": "^3.2.37"
@@ -28,6 +30,7 @@
   "devDependencies": {
     "decamelize": "^6.0.0",
     "ejs": "^3.1.8",
+    "gh-pages": "^5.0.0",
     "lorem-ipsum": "^2.0.8",
     "marked": "^4.2.12",
     "pascalcase": "^2.0.0",
