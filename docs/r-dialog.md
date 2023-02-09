@@ -3,6 +3,13 @@
 # RDialog
 
 
+## Slots
+
+| Name | Description |
+|-|-|
+| `open` |  |
+
+
 
 
 ## Props
@@ -25,6 +32,15 @@
 
 
 
-<!-- ## Methods -->
+
+## Methods
+
+| Name | Args | Description |
+|-|-|-|
+| `show` |  |  |
+| `hide` |  |  |
+| `toggle` |  |  |
+
+
 
 <!-- ## Example -->

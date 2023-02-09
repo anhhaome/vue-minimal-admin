@@ -9,11 +9,13 @@
 
 | Name | Type | Description |
 |-|-|-|
-| `type` | `` |  |
-| `label` | `` |  |
-| `variant` | `` |  |
-| `modelValue` | `` |  |
-| `indeterminate` | `` |  |
+| `type` | `string` | Can be `checkbox`, `radio` |
+| `group` | `string` | (For `radio` type) group list of checkbox with same name. |
+| `value` | `string` | (For `radio` type) Value when checkbox is selected. |
+| `label` | `string` | Label of checkbox |
+| `variant` | `string` | Checkbox type. See more at the RButton. |
+| `modelValue` | `any` | For `checkbox` type, it is boolean type. For `radio` type, it is checkbox value. |
+| `indeterminate` | `boolean` | Indeterminate state. |
 
 
 
@@ -22,10 +24,10 @@
 
 | Name | Description |
 |-|-|
-| `update:modelValue` |  |
+| `update:modelValue` | Update modelValue. |
 
 
 
-<!-- ## Methods -->
+
 
 <!-- ## Example -->

@@ -4,6 +4,8 @@ import { onMounted, ref, watch } from 'vue';
 
 const props = defineProps([
   'type',
+  'group',
+  'value',
   'label',
   'variant',
   'modelValue',
@@ -29,15 +31,16 @@ watch(
 <template>
   <div class="inline-flex items-center mr-4">
     <input
-      :type="type || 'checkbox'"
-      :class="`m-checkbox ${variant || 'secondary'}
+      type="checkbox"
+      :class="`r-checkbox ${variant || 'secondary'}
       w-4 h-4 border ${type === 'radio' ? 'rounded-full' : 'rounded'}
       focus:ring-3
       dark:bg-gray-900 dark:border-gray-500 dark:ring-offset-gray-900`"
+      :name="group || false"
       :id="`mcheckbox-${id}`"
-      :checked="props.modelValue"
+      :checked="type === 'radio' ? (value === modelValue) : modelValue"
       ref="element"
-      @change="$emit('update:modelValue', $event.target.checked)"
+      @change="$emit('update:modelValue', type === 'radio' ? ($event.target.checked ? value : null) : $event.target.checked)"
     />
     <label
       class="mt-0.5 select-none pl-2"

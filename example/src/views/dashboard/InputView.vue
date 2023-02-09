@@ -20,11 +20,7 @@ appStore.view = 'RInput';
     </div>
 
     <div>
-      <RInput class="mb-0" label="Password" type="password" />
-    </div>
-
-    <div class="my-4">
-      <RCheckbox label="Remember me" />
+      <RInput label="Password" type="password" />
     </div>
 
     <RButton variant="primary">Sign In</RButton>

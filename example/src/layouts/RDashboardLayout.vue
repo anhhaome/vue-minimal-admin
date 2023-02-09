@@ -27,9 +27,9 @@ const navigations = reactive([
   },
   {
     type: 'link',
-    name: 'RInput',
-    href: '/dashboard/input',
-    icon: 'terminal',
+    name: 'RCheckbox',
+    href: '/dashboard/checkbox',
+    icon: 'checkbox',
   },
   {
     type: 'link',
@@ -39,15 +39,33 @@ const navigations = reactive([
   },
   {
     type: 'link',
-    name: 'RNotification',
-    href: '/dashboard/notification',
-    icon: 'notifications',
+    name: 'RHeading',
+    href: '/dashboard/heading',
+    icon: 'pricetag',
   },
   {
     type: 'link',
     name: 'RIcon',
     href: '/dashboard/icon',
     icon: 'flower',
+  },
+  {
+    type: 'link',
+    name: 'RInput',
+    href: '/dashboard/input',
+    icon: 'terminal',
+  },
+  {
+    type: 'link',
+    name: 'RNotification',
+    href: '/dashboard/notification',
+    icon: 'notifications',
+  },
+  {
+    type: 'link',
+    name: 'Others',
+    href: '/dashboard/others',
+    icon: 'ellipsis-horizontal',
   },
   { type: 'label', name: 'Features' },
   {

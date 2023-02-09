@@ -3,7 +3,9 @@
 
 | Name | Description |
 |-|-|
-| `` |  |
+<% for (let item of slots) { _%>
+| `<%- item %>` | <%- data[name]?.[formatName(item)]?.desc %> |
+<% } %>
 <% } %>
 
 <% if (props.length) { %>
@@ -12,7 +14,7 @@
 | Name | Type | Description |
 |-|-|-|
 <% for (let item of props) { _%>
-| `<%- item %>` | `<%- data[name]?.[item]?.type %>` | <%- data[name]?.[item]?.desc %> |
+| `<%- item %>` | `<%- data[name]?.[formatName(item)]?.type %>` | <%- data[name]?.[formatName(item)]?.desc %> |
 <% } %>
 <% } %>
 
@@ -22,10 +24,18 @@
 | Name | Description |
 |-|-|
 <% for (let item of emits) { _%>
-| `<%- item %>` | <%- data[name]?.[item]?.desc %> |
+| `<%- item %>` | <%- data[name]?.[formatName(item)]?.desc %> |
 <% } %>
 <% } %>
 
-<!-- ## Methods -->
+<% if (methods.length) { %>
+## Methods
+
+| Name | Args | Description |
+|-|-|-|
+<% for (let item of methods) { _%>
+| `<%- item %>` | <%- data[name]?.[formatName(item)]?.args %> | <%- data[name]?.[formatName(item)]?.desc %> |
+<% } %>
+<% } %>
 
 <!-- ## Example -->
