@@ -18,7 +18,7 @@ defineEmits(['action']);
       />
     </button>
     <slot name="topbar">
-      <div class="h-16 px-4 flex items-center md:hidden">
+      <div class="h-16 px-4 flex items-center">
         <slot name="logo">
         </slot>
       </div>

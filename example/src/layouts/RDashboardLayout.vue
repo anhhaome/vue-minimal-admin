@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, ref, watch, markRaw } from 'vue';
 import { RouterView } from 'vue-router';
+import { clone } from 'ramda';
 
 import MenuIcon from '@rugo-vn/vue/dist/ionicons/MenuIcon.vue';
 import SettingsIcon from '@rugo-vn/vue/dist/ionicons/SettingsIcon.vue';
@@ -8,75 +9,11 @@ import Docs from '../components/docs';
 
 import { useAppStore } from '../stores/app';
 import IconLockup from '../components/IconLockup.vue';
+import { NAVS } from '../constants';
 
 const appStore = useAppStore();
 const navControl = ref(false);
-const navigations = reactive([
-  { type: 'label', name: 'Overview' },
-  {
-    type: 'link',
-    name: 'Introduction',
-    href: '/dashboard',
-    icon: 'home',
-  },
-  { type: 'label', name: 'Components' },
-  {
-    type: 'link',
-    name: 'RButton',
-    href: '/dashboard/button',
-    icon: 'play-circle',
-  },
-  {
-    type: 'link',
-    name: 'RCheckbox',
-    href: '/dashboard/checkbox',
-    icon: 'checkbox',
-  },
-  {
-    type: 'link',
-    name: 'RDialog',
-    href: '/dashboard/dialog',
-    icon: 'layers',
-  },
-  {
-    type: 'link',
-    name: 'RHeading',
-    href: '/dashboard/heading',
-    icon: 'pricetag',
-  },
-  {
-    type: 'link',
-    name: 'RInput',
-    href: '/dashboard/input',
-    icon: 'terminal',
-  },
-  {
-    type: 'link',
-    name: 'RNotification',
-    href: '/dashboard/notification',
-    icon: 'notifications',
-  },
-  {
-    type: 'link',
-    name: 'Others',
-    href: '/dashboard/others',
-    icon: 'ellipsis-horizontal',
-  },
-  { type: 'label', name: 'References' },
-  {
-    type: 'link',
-    name: 'Icon',
-    href: '/dashboard/icon',
-    icon: 'flower',
-  },
-  { type: 'label', name: 'Features' },
-  {
-    type: 'link',
-    name: 'Sign out',
-    href: '/auth/signout',
-    icon: 'log-out',
-  },
-]);
+const navigations = reactive(clone(NAVS));
 
 for (const item of navigations) {
   item.icon = [markRaw(IconLockup), item.icon];
@@ -110,7 +47,9 @@ const handleAction = (type) => {
         @action="handleAction"
         :leftIcon="MenuIcon"
         :rightIcon="SettingsIcon"
-      />
+      >
+        <template #logo>Logo</template>
+      </RTopBar>
       <div class="p-4">
         <RHeading type="h1">{{ appStore.view }}</RHeading>
 

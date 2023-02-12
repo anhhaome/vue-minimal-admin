@@ -3,6 +3,13 @@
 # RTopBar
 
 
+## Slots
+
+| Name | Props | Description |
+|-|-|-|
+| `logo` |  | |
+
+
 
 
 ## Props

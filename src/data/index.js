@@ -5,3 +5,4 @@ export * as RDialog from './RDialog.js';
 export * as RHeading from './RHeading.js';
 export * as RIcon from './RIcon.js';
 export * as RInput from './RInput.js';
+export * as RTopBar from './RTopBar.js';
