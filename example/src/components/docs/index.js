@@ -5,7 +5,6 @@ import RCentralLayout from './RCentralLayoutDoc.vue'
 import RCheckbox from './RCheckboxDoc.vue'
 import RDialog from './RDialogDoc.vue'
 import RHeading from './RHeadingDoc.vue'
-import RIcon from './RIconDoc.vue'
 import RInput from './RInputDoc.vue'
 import RPanel from './RPanelDoc.vue'
 import RNotification from './RNotificationDoc.vue'
@@ -17,7 +16,6 @@ RCentralLayout,
 RCheckbox,
 RDialog,
 RHeading,
-RIcon,
 RInput,
 RPanel,
 RNotification,

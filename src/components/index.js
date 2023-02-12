@@ -3,7 +3,6 @@ import RCentralLayout from './RCentralLayout/RCentralLayout.vue';
 import RCheckbox from './RCheckbox/RCheckbox.vue';
 import RDialog from './RDialog/RDialog.vue';
 import RHeading from './RHeading/RHeading.vue';
-import RIcon from './RIcon/RIcon.vue';
 import RInput from './RInput/RInput.vue';
 import RNotification from './RNotification/RNotification.vue';
 import RPanel from './RPanel/RPanel.vue';
@@ -16,7 +15,6 @@ export default {
   RCheckbox,
   RDialog,
   RHeading,
-  RIcon,
   RInput,
   RPanel,
   RNotification,

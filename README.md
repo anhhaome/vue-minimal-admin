@@ -210,7 +210,6 @@ All of components using `R` character as prefix.
 - [RCheckbox](./docs/r-checkbox.md)
 - [RDialog](./docs/r-dialog.md)
 - [RHeading](./docs/r-heading.md)
-- [RIcon](./docs/r-icon.md)
 - [RInput](./docs/r-input.md)
 - [RPanel](./docs/r-panel.md)
 - [RNotification](./docs/r-notification.md)

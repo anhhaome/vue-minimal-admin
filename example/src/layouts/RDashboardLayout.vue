@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref, watch } from 'vue';
+import { reactive, ref, watch, markRaw } from 'vue';
 import { RouterView } from 'vue-router';
 
 import MenuIcon from '@rugo-vn/vue/dist/ionicons/MenuIcon.vue';
@@ -7,6 +7,7 @@ import SettingsIcon from '@rugo-vn/vue/dist/ionicons/SettingsIcon.vue';
 import Docs from '../components/docs';
 
 import { useAppStore } from '../stores/app';
+import IconLockup from '../components/IconLockup.vue';
 
 const appStore = useAppStore();
 const navControl = ref(false);
@@ -45,12 +46,6 @@ const navigations = reactive([
   },
   {
     type: 'link',
-    name: 'RIcon',
-    href: '/dashboard/icon',
-    icon: 'flower',
-  },
-  {
-    type: 'link',
     name: 'RInput',
     href: '/dashboard/input',
     icon: 'terminal',
@@ -67,6 +62,13 @@ const navigations = reactive([
     href: '/dashboard/others',
     icon: 'ellipsis-horizontal',
   },
+  { type: 'label', name: 'References' },
+  {
+    type: 'link',
+    name: 'Icon',
+    href: '/dashboard/icon',
+    icon: 'flower',
+  },
   { type: 'label', name: 'Features' },
   {
     type: 'link',
@@ -75,6 +77,10 @@ const navigations = reactive([
     icon: 'log-out',
   },
 ]);
+
+for (const item of navigations) {
+  item.icon = [markRaw(IconLockup), item.icon];
+}
 
 // navigation
 const changeView = () => {

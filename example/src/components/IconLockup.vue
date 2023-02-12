@@ -1,13 +1,15 @@
 <script setup>
 import { computed, defineAsyncComponent } from 'vue';
-import { icons } from './icons';
+import { icons } from '@rugo-vn/vue/dist/icon-names';
 
 const props = defineProps(['name']);
 
 const view = computed(() => {
-  if (icons.indexOf(props.name) === -1) props.name = 'document';
+  let originName = props.name;
 
-  const name = (props.name || '')
+  if (icons.indexOf(originName) === -1) originName = 'document';
+
+  const name = (originName || '')
     .replace(/[^a-z0-9]+/gi, ' ')
     .replace(/(\b[a-z0-9](?!\s))/gi, function (x) {
       return x.toUpperCase();
@@ -16,7 +18,7 @@ const view = computed(() => {
     .replace(/\s/g, '');
 
   return defineAsyncComponent(() =>
-    import(`../../../node_modules/@rugo-vn/vue/dist/ionicons/${name}Icon.vue`)
+    import(`../../node_modules/@rugo-vn/vue/dist/ionicons/${name}Icon.vue`)
   );
 });
 </script>

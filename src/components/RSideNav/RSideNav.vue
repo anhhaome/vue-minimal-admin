@@ -1,7 +1,5 @@
 <script setup>
-import RIcon from "../RIcon/RIcon.vue";
-
-defineProps(["items", "modelValue"]);
+defineProps(['items', 'modelValue']);
 defineEmits(["update:modelValue"]);
 </script>
 
@@ -48,9 +46,10 @@ defineEmits(["update:modelValue"]);
             class="flex items-center my-2 h-10 rounded cursor-pointer mactive:bg-primary-500 mactive:text-white hover:bg-gray-100 dark:hover:bg-gray-900"
             :active="item.active ? true : null"
           >
-            <RIcon
+            <component 
               class="block text-xl px-3" 
-              :name="item.icon"
+              :is="Array.isArray(item.icon) ? item.icon[0] : item.icon"
+              :name="Array.isArray(item.icon) ? item.icon[1] : null"
               :type="item.active ? 'filled' : 'outline'"
             />
             <span class="block md:group-mactive:hidden">{{ item.name }}</span>
