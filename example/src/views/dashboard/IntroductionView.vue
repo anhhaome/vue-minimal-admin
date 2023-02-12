@@ -24,10 +24,12 @@ const navigations = reactive(NAVS);
       :to="item.href"
       :key="item.name"
     >
-      <RPanel class="mt-[0!important] bg-primary-500 text-white">
+      <div
+        class="p-4 rounded border border-gray-100 mt-4 dark:bg-gray-900 dark:border-gray-800 mt-[0!important] bg-primary-500 text-white"
+      >
         <IconLockup :name="item.icon" class="text-3xl flex justify-center" />
         <div class="text-center mt-4">{{ item.name }}</div>
-      </RPanel>
+      </div>
     </RouterLink>
   </div>
 </template>
