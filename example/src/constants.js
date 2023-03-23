@@ -30,6 +30,12 @@ export const NAVS = [
   },
   {
     type: 'link',
+    name: 'RDropdown',
+    href: '/dashboard/dropdown',
+    icon: 'chevron-down-circle',
+  },
+  {
+    type: 'link',
     name: 'RHeading',
     href: '/dashboard/heading',
     icon: 'pricetag',

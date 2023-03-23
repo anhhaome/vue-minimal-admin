@@ -2,6 +2,7 @@ import RButton from './RButton/RButton.vue';
 import RCentralLayout from './RCentralLayout/RCentralLayout.vue';
 import RCheckbox from './RCheckbox/RCheckbox.vue';
 import RDialog from './RDialog/RDialog.vue';
+import RDropdown from './RDropdown/RDropdown.vue';
 import RHeading from './RHeading/RHeading.vue';
 import RInput from './RInput/RInput.vue';
 import RNotification from './RNotification/RNotification.vue';
@@ -14,10 +15,11 @@ export default {
   RCentralLayout,
   RCheckbox,
   RDialog,
+  RDropdown,
   RHeading,
   RInput,
   RPanel,
   RNotification,
   RSideNav,
   RTopBar,
-}
+};

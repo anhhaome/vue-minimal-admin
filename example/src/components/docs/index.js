@@ -4,6 +4,7 @@ import RButton from './RButtonDoc.vue'
 import RCentralLayout from './RCentralLayoutDoc.vue'
 import RCheckbox from './RCheckboxDoc.vue'
 import RDialog from './RDialogDoc.vue'
+import RDropdown from './RDropdownDoc.vue'
 import RHeading from './RHeadingDoc.vue'
 import RInput from './RInputDoc.vue'
 import RPanel from './RPanelDoc.vue'
@@ -15,6 +16,7 @@ export default {
 RCentralLayout,
 RCheckbox,
 RDialog,
+RDropdown,
 RHeading,
 RInput,
 RPanel,

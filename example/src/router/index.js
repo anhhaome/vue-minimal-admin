@@ -39,6 +39,16 @@ const router = createRouter({
           component: () => import('../views/dashboard/CheckboxView.vue'),
         },
         {
+          path: 'dialog',
+          name: 'Dialog',
+          component: () => import('../views/dashboard/DialogView.vue'),
+        },
+        {
+          path: 'dropdown',
+          name: 'Dropdown',
+          component: () => import('../views/dashboard/DropdownView.vue'),
+        },
+        {
           path: 'heading',
           name: 'Heading',
           component: () => import('../views/dashboard/HeadingView.vue'),
@@ -52,11 +62,6 @@ const router = createRouter({
           path: 'icon',
           name: 'Icon',
           component: () => import('../views/dashboard/IconView.vue'),
-        },
-        {
-          path: 'dialog',
-          name: 'Dialog',
-          component: () => import('../views/dashboard/DialogView.vue'),
         },
         {
           path: 'notification',
