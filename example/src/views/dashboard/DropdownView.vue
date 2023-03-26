@@ -1,7 +1,6 @@
 <script setup>
 import IconLockup from '../../components/IconLockup.vue';
 import { useAppStore } from '../../stores/app';
-import RDropdown from '../../components/RDropdown.vue';
 
 const appStore = useAppStore();
 appStore.view = 'RDropdown';
