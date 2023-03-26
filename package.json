@@ -1,6 +1,6 @@
 {
   "name": "@rugo-vn/vue",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "main": "dist/library.js",
   "module": "dist/library.mjs",

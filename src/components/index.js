@@ -9,6 +9,7 @@ import RNotification from './RNotification/RNotification.vue';
 import RPanel from './RPanel/RPanel.vue';
 import RSideNav from './RSideNav/RSideNav.vue';
 import RTopBar from './RTopBar/RTopBar.vue';
+import RTree from './RTree/RTree.vue';
 
 export default {
   RButton,
@@ -22,4 +23,5 @@ export default {
   RNotification,
   RSideNav,
   RTopBar,
+  RTree,
 };

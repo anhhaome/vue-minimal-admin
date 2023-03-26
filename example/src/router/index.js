@@ -49,6 +49,11 @@ const router = createRouter({
           component: () => import('../views/dashboard/DropdownView.vue'),
         },
         {
+          path: 'tree',
+          name: 'Tree',
+          component: () => import('../views/dashboard/TreeView.vue'),
+        },
+        {
           path: 'heading',
           name: 'Heading',
           component: () => import('../views/dashboard/HeadingView.vue'),

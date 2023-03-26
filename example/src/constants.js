@@ -28,6 +28,7 @@ export const NAVS = [
     href: '/dashboard/dialog',
     icon: 'layers',
   },
+
   {
     type: 'link',
     name: 'RDropdown',
@@ -51,6 +52,12 @@ export const NAVS = [
     name: 'RNotification',
     href: '/dashboard/notification',
     icon: 'notifications',
+  },
+  {
+    type: 'link',
+    name: 'RTree',
+    href: '/dashboard/tree',
+    icon: 'chevron-forward-circle',
   },
   {
     type: 'link',

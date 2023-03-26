@@ -5,6 +5,7 @@ const props = defineProps([
   'label',
   'variant',
   'disableAutoHide',
+  'enableHover',
   'margin',
   'boxAlign',
 ]);
@@ -61,14 +62,28 @@ const autoHideDropdown = (e) => {
   isOpened.value = false;
 };
 
+const enableHoverDropdown = (e) => {
+  if (isInside(e.target, dropdown.value)) {
+    isOpened.value = true;
+  } else {
+    isOpened.value = false;
+  }
+};
+
 onMounted(() => {
   if (!props.disableAutoHide)
     window.addEventListener('click', autoHideDropdown);
+
+  if (props.enableHover)
+    window.addEventListener('mousemove', enableHoverDropdown);
 });
 
 onUnmounted(() => {
   if (!props.disableAutoHide)
     window.removeEventListener('click', autoHideDropdown);
+
+  if (props.enableHover)
+    window.removeEventListener('mousemove', enableHoverDropdown);
 });
 </script>
 
@@ -83,7 +98,10 @@ onUnmounted(() => {
       >
     </slot>
 
-    <div ref="baseDropdown"></div>
+    <div
+      ref="baseDropdown"
+      :style="{ width: '100%', height: (margin || 0) + 'px' }"
+    ></div>
 
     <div
       ref="floatDropdown"

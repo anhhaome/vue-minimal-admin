@@ -1,6 +1,7 @@
 <script setup>
 import IconLockup from '../../components/IconLockup.vue';
 import { useAppStore } from '../../stores/app';
+import RDropdown from '../../components/RDropdown.vue';
 
 const appStore = useAppStore();
 appStore.view = 'RDropdown';
@@ -46,6 +47,26 @@ appStore.view = 'RDropdown';
         </a>
       </template>
 
+      <template v-slot="{ click }">
+        <div class="w-24">
+          <IconLockup
+            class="w-12 h-12 text-lg inline-flex items-center justify-center hover:bg-gray-100 cursor-pointer"
+            name="flower"
+            @click="click()"
+          />
+
+          <IconLockup
+            class="w-12 h-12 text-lg inline-flex items-center justify-center hover:bg-gray-100 cursor-pointer"
+            name="beer"
+            @click="click()"
+          />
+        </div>
+      </template>
+    </RDropdown>
+
+    <RHeading class="mt-4" type="h3">Hover</RHeading>
+
+    <RDropdown :enableHover="true" :margin="10">
       <template v-slot="{ click }">
         <div class="w-24">
           <IconLockup

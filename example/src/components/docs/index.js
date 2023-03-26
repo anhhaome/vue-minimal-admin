@@ -11,6 +11,7 @@ import RPanel from './RPanelDoc.vue'
 import RNotification from './RNotificationDoc.vue'
 import RSideNav from './RSideNavDoc.vue'
 import RTopBar from './RTopBarDoc.vue'
+import RTree from './RTreeDoc.vue'
 export default {
     RButton,
 RCentralLayout,
@@ -22,5 +23,6 @@ RInput,
 RPanel,
 RNotification,
 RSideNav,
-RTopBar
+RTopBar,
+RTree
   }
