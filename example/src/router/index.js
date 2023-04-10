@@ -74,6 +74,11 @@ const router = createRouter({
           component: () => import('../views/dashboard/NotificationView.vue'),
         },
         {
+          path: 'rich-editor',
+          name: 'RichEditor',
+          component: () => import('../views/dashboard/RichEditorView.vue'),
+        },
+        {
           path: 'others',
           name: 'Others',
           component: () => import('../views/dashboard/OtherView.vue'),

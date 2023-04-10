@@ -61,6 +61,12 @@ export const NAVS = [
   },
   {
     type: 'link',
+    name: 'RRichEditor',
+    href: '/dashboard/rich-editor',
+    icon: 'document-text',
+  },
+  {
+    type: 'link',
     name: 'Others',
     href: '/dashboard/others',
     icon: 'ellipsis-horizontal',
