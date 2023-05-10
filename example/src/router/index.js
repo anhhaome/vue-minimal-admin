@@ -79,6 +79,11 @@ const router = createRouter({
           component: () => import('../views/dashboard/RichEditorView.vue'),
         },
         {
+          path: 'grid-map',
+          name: 'GridMap',
+          component: () => import('../views/dashboard/GridMapView.vue'),
+        },
+        {
           path: 'others',
           name: 'Others',
           component: () => import('../views/dashboard/OtherView.vue'),

@@ -67,6 +67,12 @@ export const NAVS = [
   },
   {
     type: 'link',
+    name: 'RGridMap',
+    href: '/dashboard/grid-map',
+    icon: 'grid',
+  },
+  {
+    type: 'link',
     name: 'Others',
     href: '/dashboard/others',
     icon: 'ellipsis-horizontal',

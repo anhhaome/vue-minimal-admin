@@ -78,7 +78,6 @@ const delayCall = createDelayCall();
 const handleTextChange = () =>
   delayCall(() => {
     const raw = getHTML();
-    console.log(raw);
     emit('update:modelValue', raw);
   });
 

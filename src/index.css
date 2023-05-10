@@ -260,6 +260,24 @@
   }
 }
 
+@layer component {
+  .r-grid-map .cell {
+    width: 1em;
+    height: 1em;
+    padding: 1px;
+  }
+
+  .r-grid-map .cell .inner {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+  }
+
+  .r-grid-map .cell.selected .inner {
+    @apply bg-sky-200;
+  }
+}
+
 /* font */
 @font-face {
   font-display: swap;

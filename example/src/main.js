@@ -1,4 +1,3 @@
-import katex from 'katex';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 
@@ -7,7 +6,6 @@ import router from './router';
 import RugoVue from '@rugo-vn/vue';
 
 import '@rugo-vn/vue/dist/index.css';
-import 'katex/dist/katex.min.css';
 import './index.css';
 
 const app = createApp(App);
@@ -16,5 +14,3 @@ app.use(createPinia());
 app.use(RugoVue);
 app.use(router);
 app.mount('#app');
-
-window.katex = katex;
