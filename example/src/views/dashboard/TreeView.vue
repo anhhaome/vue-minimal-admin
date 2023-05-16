@@ -6,6 +6,23 @@ const appStore = useAppStore();
 appStore.view = 'RTree';
 
 const root = { name: 'Simple Root Node', level: '1' };
+const tree = {
+  name: 'Simple Root Node',
+  level: '1',
+  children: [
+    {
+      id: 1,
+      name: `Child Node #1.1`,
+      level: '1.1',
+    },
+    {
+      id: 2,
+      name: `Child Node #1.2`,
+      level: '1.2',
+    },
+  ],
+  expanded: true,
+};
 
 const delay = (data) =>
   new Promise((resolve) => setTimeout(() => resolve(data), 500));
@@ -34,6 +51,24 @@ const doAction = (action, node) => {
     <RHeading type="h3">Simple</RHeading>
 
     <RTree :node="root" :load="load"></RTree>
+
+    <RHeading class="mt-4" type="h3">Custom Head Slot</RHeading>
+
+    <RTree :node="tree" @clickNode="doAction('click', $event)">
+      <template #heading="{ toggleNode, isShowed }">
+        <button
+          :class="`text-sm rounded-md px-[.15rem] flex items-center justify-center`"
+          :variant="isShowed ? 'secondary' : 'primary'"
+          @click="toggleNode"
+        >
+          <IconLockup :name="isShowed ? `chevron-down` : `chevron-forward`" />
+        </button>
+      </template>
+
+      <template #ending>
+        <div></div>
+      </template>
+    </RTree>
 
     <RHeading class="mt-4" type="h3">Custom End Slot</RHeading>
 

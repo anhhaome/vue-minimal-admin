@@ -23,20 +23,42 @@ const toggleNode = async () => {
 
   children.value = [];
   isShowed.value = true;
-  isLoading.value = true;
 
-  children.value = await props.load(props.node);
-
-  isLoading.value = false;
+  if (props.node.children) {
+    children.value = props.node.children;
+  } else if (props.load) {
+    isLoading.value = true;
+    children.value = await props.load(props.node);
+    isLoading.value = false;
+  }
 };
+
+if (props.node.expanded) toggleNode();
 </script>
 
 <template>
   <div v-if="node">
     <div
-      class="flex justify-between items-center hover:bg-secondary-100 px-2 py-1 select-none cursor-pointer"
+      class="flex justify-between items-center px-2 select-none cursor-pointer"
     >
-      <div class="flex-1" @click="$emit('clickNode', node)">
+      <div class="mr-1 h-full">
+        <slot
+          name="heading"
+          :toggleNode="toggleNode"
+          :isShowed="isShowed"
+          :node="node"
+        >
+          [<a
+            class="text-primary-500 underline cursor-pointer"
+            @click="toggleNode"
+            >{{ isShowed ? 'Hide' : 'Show' }}</a
+          >]
+        </slot>
+      </div>
+      <div
+        class="flex-1 hover:bg-secondary-100 px-2 py-1 mr-1"
+        @click="$emit('clickNode', node)"
+      >
         {{ node.name }}
       </div>
       <div>
@@ -104,7 +126,7 @@ const toggleNode = async () => {
       <div
         v-for="item in children"
         :key="item.id"
-        class="relative before:w-2 before:h-[1px] before:bg-secondary-300 before:block before:absolute before:top-3 before:left-0 after:w-[1px] after:h-[calc(0.75rem+1px)] after:bg-secondary-300 after:block after:absolute after:top-0 after:left-[-1px] last:border-transparent border-l border-secondary-300 pl-2"
+        class="relative before:w-2 before:h-[1px] before:bg-secondary-300 before:block before:absolute before:top-3 before:left-0 after:w-[1px] after:h-[calc(0.75rem+1px)] after:bg-secondary-300 after:block after:absolute after:top-0 after:left-[-1px] last:border-transparent border-l border-secondary-300 pl-1 ml-2"
       >
         <TreeLoader
           :node="item"
@@ -112,6 +134,27 @@ const toggleNode = async () => {
           :slots="$slots"
           @clickNode="$emit('clickNode', $event)"
         >
+          <template
+            #heading="{
+              toggleNode: toggleNodeSecondary,
+              isShowed: isShowedSecondary,
+              node: nodeSecondary,
+            }"
+          >
+            <slot
+              name="heading"
+              :toggleNode="toggleNodeSecondary"
+              :isShowed="isShowedSecondary"
+              :node="nodeSecondary"
+            >
+              [<a
+                class="text-primary-500 underline cursor-pointer"
+                @click="toggleNodeSecondary"
+                >{{ isShowedSecondary ? 'Hide' : 'Show' }}</a
+              >]
+            </slot>
+          </template>
+
           <template
             #ending="{
               toggleNode: toggleNodeSecondary,
@@ -133,6 +176,13 @@ const toggleNode = async () => {
             </slot>
           </template>
         </TreeLoader>
+      </div>
+
+      <div
+        v-if="!isLoading && children.length === 0"
+        class="text-xs italic text-gray-500 border text-center rounded p-.5"
+      >
+        Empty
       </div>
     </div>
   </div>
