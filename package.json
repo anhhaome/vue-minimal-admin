@@ -1,49 +1,53 @@
 {
   "name": "@rugo-vn/vue",
-  "version": "1.0.8",
+  "version": "1.1.0-beta.1",
+  "private": true,
+  "main": "./dist/rugo-vue.umd.js",
+  "module": "./dist/rugo-vue.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/rugo-vue.es.js",
+      "require": "./dist/rugo-vue.umd.js"
+    }
+  },
   "type": "module",
-  "main": "dist/library.js",
-  "module": "dist/library.mjs",
-  "files": [
-    "dist/*"
-  ],
   "scripts": {
-    "build:library": "rollup -c",
-    "build:icon": "node src/generate.js",
-    "build": "npm run build:library && npm run build:icon",
-    "clean": "rm -rf build && rm -rf dist && npm run example:clean",
-    "doc:clean": "rm -rf docs/* && rm -rf example/src/components/docs/*",
-    "doc:generate": "npm run build && node src/doc.js",
-    "doc": "npm run doc:clean && npm run doc:generate",
-    "example:install": "npm i && npm run build && npm run make-pack && cd example && npm i",
-    "example:clean": "cd example && rm -rf node_modules && rm -rf package-lock.json",
-    "example:build": "npm run example:clean && npm run example:install && cd example && npm run build",
-    "example": "npm run example:clean && npm run example:install && cd example && npm run dev",
-    "make-pack": "mkdir -p build && npm pack && mv rugo-vn-vue-* build/rugo-vn-vue.tgz",
-    "publish:beta": "npm publish --access public --tag beta",
-    "publish:release": "npm publish --access public",
-    "deploy": "npm run example:build && gh-pages -d example/dist"
-  },
-  "peerDependencies": {
-    "vue": "^3.2.37"
-  },
-  "devDependencies": {
-    "decamelize": "^6.0.0",
-    "ejs": "^3.1.8",
-    "gh-pages": "^5.0.0",
-    "lorem-ipsum": "^2.0.8",
-    "marked": "^4.2.12",
-    "pascalcase": "^2.0.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.78.0",
-    "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-vue": "^6.0.0",
-    "tailwindcss": "^3.1.8"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "format": "prettier --write src/",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "publish:beta": "npm run build && npm publish --access public --tag beta",
+    "publish:release": "npm run build && npm publish --access public"
   },
   "dependencies": {
-    "katex": "^0.16.4",
-    "quill": "^1.3.7",
-    "uniqid": "^5.4.0"
+    "vue": "^3.3.2"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@storybook/addon-essentials": "^7.0.18",
+    "@storybook/addon-interactions": "^7.0.18",
+    "@storybook/addon-links": "^7.0.18",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addon-styling": "^1.0.8",
+    "@storybook/blocks": "^7.0.18",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/vue3": "^7.0.18",
+    "@storybook/vue3-vite": "^7.0.18",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/eslint-config-prettier": "^7.1.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.39.0",
+    "eslint-plugin-storybook": "^0.6.12",
+    "eslint-plugin-vue": "^9.11.0",
+    "postcss": "^8.4.24",
+    "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.18",
+    "tailwindcss": "^3.3.2",
+    "vite": "^4.3.5"
   }
 }

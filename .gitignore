@@ -1,15 +1,5 @@
-# Tmp
-.cache
-.tmp
-.vscode
-
-# Dependencies
 node_modules
+tmp
 package-lock.json
 
-# Test
-coverage
-
-# Build
 dist
-build

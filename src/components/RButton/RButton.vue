@@ -1,5 +1,5 @@
 <script setup>
-defineProps(["variant", "disabled"]);
+defineProps(['variant', 'disabled'])
 </script>
 
 <template>

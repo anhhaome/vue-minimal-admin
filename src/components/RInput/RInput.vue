@@ -1,21 +1,21 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref } from 'vue'
 
-const props = defineProps(["label", "type", "modelValue", 'focus', 'disabled', 'readonly']);
-defineEmits(["update:modelValue", 'focus', 'blur']);
+const props = defineProps(['label', 'type', 'modelValue', 'focus', 'disabled', 'readonly'])
+defineEmits(['update:modelValue', 'focus', 'blur'])
 
-const input = ref(null);
+const input = ref(null)
 
 onMounted(() => {
-  if (props.focus){
-    input.value.focus();
+  if (props.focus) {
+    input.value.focus()
     input.value.select()
   }
-});
+})
 </script>
 
 <template>
-  <div class="relative my-6">
+  <div class="relative">
     <input
       ref="input"
       :type="type"
