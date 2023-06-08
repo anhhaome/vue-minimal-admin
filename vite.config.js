@@ -10,13 +10,22 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+    },
+    dedupe: ['vue']
   },
   build: {
     lib: {
       entry: resolve('src/plugin.js'),
       name: 'rugo-vue',
       fileName: (format) => `rugo-vue.${format}.js`
+    },
+    rollupOptions: {
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue'
+        }
+      }
     }
   }
 })
