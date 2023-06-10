@@ -1,3 +1,8 @@
 <template>
-  <RButton>RButton</RButton>
+  <div>
+    <RButton>RButton</RButton>
+    <RHeading>Heading</RHeading>
+    <RInput />
+    <RPanel>Panel</RPanel>
+  </div>
 </template>

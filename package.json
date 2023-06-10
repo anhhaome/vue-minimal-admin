@@ -1,6 +1,6 @@
 {
   "name": "@rugo-vn/vue",
-  "version": "1.1.0-beta.3",
+  "version": "1.1.0-beta.4",
   "main": "./dist/rugo-vue.umd.js",
   "module": "./dist/rugo-vue.es.js",
   "exports": {
@@ -11,8 +11,9 @@
   },
   "type": "module",
   "scripts": {
+    "make-icon": "node src/make-icon.js",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run make-icon",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
@@ -39,10 +40,12 @@
     "eslint": "^8.39.0",
     "eslint-plugin-storybook": "^0.6.12",
     "eslint-plugin-vue": "^9.11.0",
+    "pascalcase": "^2.0.0",
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rimraf": "^5.0.1",
     "storybook": "^7.0.18",
     "tailwindcss": "^3.3.2",
     "vite": "^4.3.5",

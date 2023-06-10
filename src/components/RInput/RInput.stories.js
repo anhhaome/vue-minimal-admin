@@ -13,7 +13,7 @@ const Template = (args) => ({
   template: '<RInput :label="args.label" />'
 })
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const Default = Template.bind({})
+Default.args = {
   label: 'Default text input'
 }
