@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 
-const props = defineProps(['label', 'type', 'modelValue', 'focus', 'disabled', 'readonly'])
+const props = defineProps(['label', 'type', 'modelValue', 'focus', 'disabled', 'readonly', 'name'])
 defineEmits(['update:modelValue', 'focus', 'blur'])
 
 const input = ref(null)
@@ -21,6 +21,7 @@ onMounted(() => {
       :type="type"
       :placeholder="label"
       :value="modelValue"
+      :name="name"
       @input="$emit('update:modelValue', $event.target.value)"
       @focus="$emit('focus')"
       @blur="$emit('blur')"
