@@ -1,14 +1,37 @@
 <script setup>
-defineProps(['variant', 'disabled'])
+defineProps(['variant'])
 </script>
 
 <template>
   <button
-    :class="`r-button ${
-      variant || 'secondary'
-    } px-4 py-2 rounded-lg inline-flex items-center text-white`"
-    :disabled="disabled ? true : null"
+    :class="`${variant || 'secondary'} uppercase text-white px-3 py-2 rounded-lg font-semibold`"
   >
     <slot></slot>
   </button>
 </template>
+
+<style scoped>
+.primary {
+  @apply bg-primary-500;
+}
+
+.secondary {
+  @apply bg-secondary-500;
+}
+
+.success {
+  @apply bg-success-500;
+}
+
+.danger {
+  @apply bg-danger-500;
+}
+
+.info {
+  @apply bg-info-500;
+}
+
+.warn {
+  @apply bg-warn-500;
+}
+</style>
