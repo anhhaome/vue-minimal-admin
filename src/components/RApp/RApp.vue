@@ -1,11 +1,11 @@
 <script setup></script>
 
 <template>
-  <div class="bg-gray-100 antialiased">
+  <div class="bg-gray-100 antialiased min-w-screen min-h-screen">
     <div class="flex items-start">
       <slot name="left"></slot>
 
-      <div>
+      <div class="w-full">
         <slot name="top"></slot>
         <slot></slot>
         <slot name="bottom"></slot>

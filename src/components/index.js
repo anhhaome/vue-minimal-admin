@@ -9,6 +9,8 @@ import RPanel from './RPanel/RPanel.vue'
 import RSideNavPanel from './RPanel/RSideNavPanel.vue'
 import RTopPanel from './RPanel/RTopPanel.vue'
 
+import RHyperTable from './RTable/RHyperTable.vue'
+
 import RTree from './RTree/RTree.vue'
 
 export default {
@@ -22,6 +24,8 @@ export default {
   RPanel,
   RSideNavPanel,
   RTopPanel,
+
+  RHyperTable,
 
   RTree
 }

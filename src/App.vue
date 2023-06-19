@@ -1,8 +1,9 @@
 <script setup>
+import { reactive } from 'vue'
 import RugoLogo from './assets/images/logo.svg'
-import LoremIpsum from './widgets/LoremIpsum.vue'
+import { ROUTE } from './constants'
 
-const navs = [
+const navs = reactive([
   { title: 'Overview' },
   {
     title: 'Dashboard',
@@ -32,11 +33,16 @@ const navs = [
       { title: 'Typography', action: '/' }
     ]
   },
+  {
+    title: 'Hyper Table',
+    icon: 'CalculatorIcon',
+    action: ROUTE.HYPER_TABLE
+  },
   { title: 'Personal' },
   { title: 'Profile', icon: 'UserIcon', action: '/' },
   { title: 'Secure', icon: 'LockClosedIcon', action: '/' },
   { title: 'Logout', icon: 'ArrowLeftOnRectangleIcon', action: '/' }
-]
+])
 </script>
 
 <template>
@@ -65,8 +71,8 @@ const navs = [
       <RTopPanel></RTopPanel>
     </template>
 
-    <div class="px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:px-8">
-      <LoremIpsum></LoremIpsum>
+    <div class="px-4 sm:px-6 md:px-8 py-4 sm:py-6">
+      <RouterView />
     </div>
   </RApp>
 </template>
