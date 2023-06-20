@@ -53,7 +53,7 @@ const identifiedData = computed(() => {
   <div class="r-tree" v-for="item of identifiedData" :key="item.id">
     <slot
       :node="item.node"
-      :isOpen="item.active"
+      :isOpened="item.active"
       :open="() => (item.active = true)"
       :close="() => (item.active = false)"
       :toggle="() => (item.active = !item.active)"

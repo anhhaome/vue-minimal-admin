@@ -65,7 +65,7 @@ watch(() => route.path, updateActive)
           : 'h-screen') + ' overflow-y-scroll pr-4'
       "
     >
-      <RTree :data="navs" v-slot="{ node, toggle, isOpen }">
+      <RTree :data="navs" v-slot="{ node, toggle, isOpened }">
         <component
           :is="
             typeof node.action === 'function' || node.children
@@ -92,7 +92,7 @@ watch(() => route.path, updateActive)
             </template>
 
             <template v-if="node.children" #end>
-              <ChevronUpIcon v-if="isOpen" class="w-3.5 h-3.5 stroke-[3]" />
+              <ChevronUpIcon v-if="isOpened" class="w-3.5 h-3.5 stroke-[3]" />
               <ChevronDownIcon v-else class="w-3.5 h-3.5 stroke-[3]" />
             </template>
 
