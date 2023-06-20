@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="bg-gray-100 antialiased min-w-screen min-h-screen">
+  <div class="bg-gray-100 text-gray-500 antialiased min-w-screen min-h-screen">
     <div class="flex items-start">
       <slot name="left"></slot>
 

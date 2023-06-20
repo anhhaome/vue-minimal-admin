@@ -45,7 +45,7 @@ const isAnyBot = computed(() => {
 
       <tr>
         <th
-          :class="`border border-gray-200 text-gray-500 uppercase text-xs px-3 py-2 tracking-wider text-left font-semibold head(${name})`"
+          :class="`border border-gray-200 text-gray-500 uppercase text-xs px-6 py-4 tracking-wider text-left font-semibold head(${name})`"
           v-for="name in fields"
           :key="`head(${name})`"
         >
@@ -58,7 +58,7 @@ const isAnyBot = computed(() => {
 
       <tr class="hover:bg-gray-50" v-if="isAnyTop">
         <td
-          :class="`border border-b-2 border-gray-200 text-gray-700 px-3 py-2 text-sm top(${name})`"
+          :class="`border border-b-2 border-gray-200 px-6 py-4 text-sm top(${name})`"
           v-for="name in fields"
           :key="`top(${name})`"
         >
@@ -70,7 +70,7 @@ const isAnyBot = computed(() => {
 
       <tr class="hover:bg-gray-50" v-for="row in data" :key="`row(${row.id})`">
         <td
-          :class="`border border-gray-200 text-gray-700 px-3 py-2 text-sm cell(${name})`"
+          :class="`border border-gray-200 px-6 py-4 text-sm cell(${name})`"
           v-for="name in fields"
           :key="`cell(${name})`"
         >
@@ -82,7 +82,7 @@ const isAnyBot = computed(() => {
 
       <tr class="hover:bg-gray-50" v-if="isAnyBot">
         <td
-          :class="`border border-t-2 border-gray-200 text-gray-700 px-3 py-2 text-sm bot(${name})`"
+          :class="`border border-t-2 border-gray-200 px-6 py-4 text-sm bot(${name})`"
           v-for="name in fields"
           :key="`bot(${name})`"
         >

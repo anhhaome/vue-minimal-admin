@@ -1,54 +1,53 @@
 <script setup>
-import { reactive } from 'vue'
 import RugoLogo from './assets/images/logo.svg'
-import { ROUTE } from './constants'
+import { NAVS } from './constants'
 
-const navs = reactive([
-  { title: 'Overview' },
-  {
-    title: 'Dashboard',
-    icon: 'Squares2X2Icon',
-    children: [
-      { title: 'Simple', icon: 'CheckBadgeIcon', action: '/' },
-      { title: 'Complex', icon: 'ClipboardDocumentCheckIcon', action: '/' }
-    ]
-  },
-  {
-    title: 'Analytic',
-    icon: 'ChartBarSquareIcon',
-    children: [
-      { title: 'Simple', icon: 'CheckBadgeIcon', action: '/' },
-      { title: 'Complex', icon: 'ClipboardDocumentCheckIcon', action: '/' }
-    ]
-  },
-  { title: 'Explorer', icon: 'MagnifyingGlassIcon', action: '/' },
-  { title: 'UI Components' },
-  {
-    title: 'Common',
-    icon: 'RectangleGroupIcon',
-    children: [
-      { title: 'Button', action: '/' },
-      { title: 'Input', action: '/' },
-      { title: 'Grid', action: '/' },
-      { title: 'Typography', action: '/' }
-    ]
-  },
-  {
-    title: 'Hyper Table',
-    icon: 'CalculatorIcon',
-    action: ROUTE.HYPER_TABLE
-  },
-  { title: 'Personal' },
-  { title: 'Profile', icon: 'UserIcon', action: '/' },
-  { title: 'Secure', icon: 'LockClosedIcon', action: '/' },
-  { title: 'Logout', icon: 'ArrowLeftOnRectangleIcon', action: '/' }
-])
+// const navs = [
+//   { title: 'Overview' },
+//   {
+//     title: 'Dashboard',
+//     icon: 'Squares2X2Icon',
+//     children: [
+//       { title: 'Simple', icon: 'CheckBadgeIcon', action: '/' },
+//       { title: 'Complex', icon: 'ClipboardDocumentCheckIcon', action: '/' }
+//     ]
+//   },
+//   {
+//     title: 'Analytic',
+//     icon: 'ChartBarSquareIcon',
+//     children: [
+//       { title: 'Simple', icon: 'CheckBadgeIcon', action: '/' },
+//       { title: 'Complex', icon: 'ClipboardDocumentCheckIcon', action: '/' }
+//     ]
+//   },
+//   { title: 'Explorer', icon: 'MagnifyingGlassIcon', action: '/' },
+//   { title: 'UI Components' },
+//   {
+//     title: 'Common',
+//     icon: 'RectangleGroupIcon',
+//     children: [
+//       { title: 'Button', action: '/' },
+//       { title: 'Input', action: '/' },
+//       { title: 'Grid', action: '/' },
+//       { title: 'Typography', action: '/' }
+//     ]
+//   },
+//   {
+//     title: 'Hyper Table',
+//     icon: 'CalculatorIcon',
+//     action: ROUTE.HYPER_TABLE
+//   },
+//   { title: 'Personal' },
+//   { title: 'Profile', icon: 'UserIcon', action: '/' },
+//   { title: 'Secure', icon: 'LockClosedIcon', action: '/' },
+//   { title: 'Logout', icon: 'ArrowLeftOnRectangleIcon', action: '/' }
+// ]
 </script>
 
 <template>
   <RApp>
     <template #left>
-      <RSideNavPanel :data="navs">
+      <RSideNavPanel :data="NAVS">
         <template #header>
           <RListItem>
             <template #start>

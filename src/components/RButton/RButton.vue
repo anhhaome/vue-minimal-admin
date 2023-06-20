@@ -1,37 +1,45 @@
 <script setup>
-defineProps(['variant'])
+defineProps({
+  variant: { type: String, default: 'default' }
+})
 </script>
 
 <template>
-  <button
-    :class="`${variant || 'secondary'} uppercase text-white px-3 py-2 rounded-lg font-semibold`"
-  >
+  <button :class="'r-button ' + variant">
     <slot></slot>
   </button>
 </template>
 
-<style scoped>
-.primary {
-  @apply bg-primary-500;
+<style>
+.r-button {
+  @apply rounded-md px-8 py-2 text-sm font-semibold h-11;
 }
 
-.secondary {
-  @apply bg-secondary-500;
+.r-button.default {
+  @apply border border-gray-300 text-gray-600 bg-white hover:bg-gray-50;
 }
 
-.success {
-  @apply bg-success-500;
+.r-button.primary {
+  @apply bg-primary-600 hover:bg-primary-500 text-white;
 }
 
-.danger {
-  @apply bg-danger-500;
+.r-button.secondary {
+  @apply bg-secondary-600 hover:bg-secondary-500 text-white;
 }
 
-.info {
-  @apply bg-info-500;
+.r-button.success {
+  @apply bg-success-600 hover:bg-success-500 text-white;
 }
 
-.warn {
-  @apply bg-warn-500;
+.r-button.danger {
+  @apply bg-danger-600 hover:bg-danger-500 text-white;
+}
+
+.r-button.info {
+  @apply bg-info-600 hover:bg-info-500 text-white;
+}
+
+.r-button.warn {
+  @apply bg-warn-600 hover:bg-warn-500 text-white;
 }
 </style>

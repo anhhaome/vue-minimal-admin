@@ -1,10 +1,11 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/vue/24/outline'
 import * as Icons from '@heroicons/vue/24/outline'
 import { countSlot } from '../../utils'
 import RTree from '../RTree/RTree.vue'
 import RListItem from '../RList/RListItem.vue'
+import { reactive, watch } from 'vue'
 
 /**
  * data structure:
@@ -15,13 +16,38 @@ import RListItem from '../RList/RListItem.vue'
  * ```
  */
 
-defineProps(['data'])
+const props = defineProps(['data'])
+
+const route = useRoute()
+const navs = reactive(props.data)
 
 const handleAction = (action, node) => {
   if (typeof action !== 'function') return
 
   action(node)
 }
+
+const deactive = (data = []) => {
+  for (const item of data) {
+    item.active = false
+    deactive(item.children)
+  }
+}
+
+const active = (data = []) => {
+  for (const item of data) {
+    if (item.action === route.path) item.active = true
+
+    active(item.children)
+  }
+}
+
+const updateActive = () => {
+  deactive(navs)
+  active(navs)
+}
+
+watch(() => route.path, updateActive)
 </script>
 
 <template>
@@ -39,7 +65,7 @@ const handleAction = (action, node) => {
           : 'h-screen') + ' overflow-y-scroll pr-4'
       "
     >
-      <RTree :data="data" v-slot="{ node, toggle, isOpen }">
+      <RTree :data="navs" v-slot="{ node, toggle, isOpen }">
         <component
           :is="
             typeof node.action === 'function' || node.children

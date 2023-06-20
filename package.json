@@ -51,7 +51,8 @@
     "vite-svg-loader": "^4.0.0"
   },
   "dependencies": {
-    "ramda": "^0.29.0"
+    "ramda": "^0.29.0",
+    "vee-validate": "^4.9.6"
   },
   "peerDependencies": {
     "@heroicons/vue": "^2.0.18",

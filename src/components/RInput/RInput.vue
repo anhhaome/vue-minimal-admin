@@ -1,38 +1,33 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { useField } from 'vee-validate'
+import { toRef } from 'vue'
 
-const props = defineProps(['label', 'type', 'modelValue', 'focus', 'disabled', 'readonly', 'name'])
-defineEmits(['update:modelValue', 'focus', 'blur'])
-
-const input = ref(null)
-
-onMounted(() => {
-  if (props.focus) {
-    input.value.focus()
-    input.value.select()
-  }
+const props = defineProps({
+  name: { type: String, required: true },
+  label: { type: String }
 })
+
+const name = toRef(props, 'name')
+
+const { value: inputValue, errorMessage, handleBlur, handleChange } = useField(name)
 </script>
 
 <template>
-  <div class="relative">
-    <input
-      ref="input"
-      :type="type"
-      :placeholder="label"
-      :value="modelValue"
-      :name="name"
-      @input="$emit('update:modelValue', $event.target.value)"
-      @focus="$emit('focus')"
-      @blur="$emit('blur')"
-      class="block border w-full p-3 rounded-lg peer outline-none focus:border-black dark:bg-gray-900 dark:border-gray-500 dark:focus:border-primary-500"
-      :disabled="disabled"
-      :readonly="readonly"
-    />
-    <label
-      class="absolute top-[-.7em] left-2 px-1 bg-white cursor-text transition-all text-[0.7rem] text-gray-600 peer-focus:top-[-.7em] peer-focus:text-[0.7rem] peer-focus:text-black peer-placeholder-shown:top-[1em] peer-placeholder-shown:text-[1em] dark:bg-gray-900 dark:text-gray-500 dark:peer-focus:text-primary-500 pointer-events-none"
-    >
+  <div class="text-sm">
+    <label v-if="label" :for="name" class="mb-2 font-semibold leading-5 flex">
       {{ label }}
     </label>
+
+    <input
+      :name="name"
+      :id="name"
+      type="text"
+      :value="inputValue"
+      @input="handleChange"
+      @blur="handleBlur"
+      class="border border-gray-300 rounded-md px-3 py-2 w-full leading-5 h-11 focus:outline-primary-600 focus-within:outline-primary-600 focus-within:border-primary-600 focus:border-primary-600"
+    />
+
+    <div v-if="errorMessage" class="text-danger-500 h-5 -bottom-5 mt-1">{{ errorMessage }}</div>
   </div>
 </template>
