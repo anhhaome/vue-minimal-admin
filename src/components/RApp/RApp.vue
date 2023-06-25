@@ -7,7 +7,9 @@
 
       <div class="w-full">
         <slot name="top"></slot>
-        <slot></slot>
+        <div class="pb-64">
+          <slot></slot>
+        </div>
         <slot name="bottom"></slot>
       </div>
 

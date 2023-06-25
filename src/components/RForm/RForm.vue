@@ -1,8 +1,14 @@
 <script setup>
 import { useForm } from 'vee-validate'
 
+const props = defineProps({
+  value: { type: Object }
+})
+
 const emit = defineEmits(['submit'])
-const { resetForm, submitForm, handleSubmit } = useForm()
+const { resetForm, submitForm, handleSubmit } = useForm({
+  initialValues: props.value || {}
+})
 
 const onSubmit = handleSubmit((values) => {
   emit('submit', values)

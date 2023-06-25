@@ -52,7 +52,6 @@ const toggle = () => {
 }
 
 const open = () => {
-  console.log('do open')
   isOpened.value = true
 }
 
