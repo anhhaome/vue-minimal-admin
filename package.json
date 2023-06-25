@@ -1,13 +1,14 @@
 {
   "name": "@rugo-vn/vue",
-  "version": "1.2.0-beta.0",
+  "version": "1.2.0-beta.1",
   "main": "./dist/rugo-vue.umd.js",
   "module": "./dist/rugo-vue.es.js",
   "exports": {
     ".": {
       "import": "./dist/rugo-vue.es.js",
       "require": "./dist/rugo-vue.umd.js"
-    }
+    },
+    "./theme.js": "./src/theme.js"
   },
   "type": "module",
   "scripts": {
