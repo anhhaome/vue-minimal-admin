@@ -15,6 +15,10 @@ defineProps({
   @apply rounded-md px-8 py-2 text-sm font-semibold h-11;
 }
 
+.r-button.none {
+  @apply hover:bg-black hover:bg-opacity-5;
+}
+
 .r-button.default {
   @apply border border-gray-300 text-gray-600 bg-white hover:bg-gray-50;
 }

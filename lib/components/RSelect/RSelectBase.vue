@@ -1,7 +1,7 @@
 <script setup>
 import { computed, reactive, ref, watch } from 'vue';
 import { ChevronDownIcon, XMarkIcon, CheckIcon } from '@heroicons/vue/24/outline';
-import { equals, flatten, pipe, uniq } from 'ramda';
+import { equals, flatten, pipe, prop, uniq, uniqBy, uniqWith } from 'ramda';
 
 const props = defineProps({
   name: { type: String, required: true },
@@ -22,18 +22,17 @@ const searchText = ref('');
 const selectedList = reactive([]);
 const selectionCursor = ref(0);
 
-const computedOptions = computed(() =>
-  pipe(
-    flatten,
-    uniq
-  )([props.options || [], props.value || []])
+const computedOptions = computed(() => {
+  const data = flatten([props.options || [], props.value || []])
     .filter((i) => i)
     .map((item) =>
       typeof item === 'string'
         ? { value: item, text: item }
         : { value: item.value || item.text, text: item.text || item.value }
-    )
-);
+    );
+
+  return uniqBy(prop('value'))(data);
+});
 
 const filteredOptions = computed(() =>
   computedOptions.value
@@ -48,9 +47,7 @@ const filteredOptions = computed(() =>
 );
 
 const restoreSearchText = () => {
-  if (props.isMultiple) return (searchText.value = '');
-
-  searchText.value = selectedList[0]?.text || '';
+  searchText.value = '';
 };
 
 const onFocus = () => {
@@ -189,8 +186,9 @@ watch(
             spellcheck="false"
             ref="searchInput"
             disable-toggle-focus
-            class="outline-none bg-transparent w-full px-1.5 h-[1.875rem]"
+            class="outline-none bg-transparent w-full px-1.5 h-[1.875rem] placeholder:text-inherit"
             v-model="searchText"
+            :placeholder="isMultiple ? '' : selectedList[0]?.text || ''"
             @keydown.enter="doEnter"
           />
         </div>

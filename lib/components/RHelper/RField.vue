@@ -1,23 +1,37 @@
 <script setup>
 import { useField } from 'vee-validate';
-import { toRef } from 'vue';
+import { ref, toRef } from 'vue';
 import { generateId } from '../../utils';
 import RLabel from './RLabel.vue';
 
 const props = defineProps({
-  name: { type: String, required: true },
+  name: { type: String },
   label: { type: String },
+  modelValue: {},
+  value: {},
 
   // RSelect
   options: {
     type: Array
   }
 });
-
-const name = toRef(props, 'name');
-const { value: inputValue, handleChange, handleBlur } = useField(name);
+const emit = defineEmits(['input', 'update:modelValue']);
 
 const labelRef = generateId().toString();
+const name = props.name ? toRef(props, 'name') : ref(labelRef);
+const {
+  value: inputValue,
+  handleChange,
+  handleBlur
+} = useField(name, [], {
+  initialValue: props.modelValue || props.value
+});
+
+const onInput = (value) => {
+  handleChange(value);
+  emit('input', value);
+  emit('update:modelValue', value);
+};
 </script>
 
 <template>
@@ -27,9 +41,10 @@ const labelRef = generateId().toString();
     <slot
       v-bind="{
         ...props,
+        name,
         value: inputValue,
         labelRef,
-        onInput: handleChange,
+        onInput,
         onBlur: handleBlur
       }"
     ></slot>

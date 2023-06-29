@@ -7,7 +7,7 @@ import {
   RForm,
   RSingleSelect,
   RMultiSelect
-} from '../../lib/index.js';
+} from '../../../lib/index.js';
 
 const alert = (x) => window.alert(JSON.stringify(x, 0, 2));
 const countries = [
