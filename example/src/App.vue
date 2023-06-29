@@ -1,5 +1,5 @@
 <script setup>
-import { RHeading } from '../lib/index.js';
+import { RHeading } from '@rugo-vn/vue';
 </script>
 
 <template>

@@ -4,10 +4,13 @@
   "description": "",
   "type": "module",
   "exports": {
-    ".": "./src/components/index.js"
+    ".": "./lib/index.js",
+    "./theme.js": "./lib/theme.js"
   },
   "scripts": {
     "dev": "vite",
+    "example:make": "node ./scripts/example-make.js && cd example && ../scripts/example-make.sh",
+    "example:run": "cd example && npm run dev",
     "publish:beta": "npm publish --access public --tag beta",
     "publish:release": "npm publish --access public"
   },
@@ -31,6 +34,11 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "ramda": "^0.29.0",
+    "rimraf": "^5.0.1",
+    "tailwindcss": "^3.3.2",
     "vite": "^4.3.9"
   }
 }
