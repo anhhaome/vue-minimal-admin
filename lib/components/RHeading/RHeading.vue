@@ -1,11 +1,11 @@
 <script setup>
-import { computed } from 'vue'
+import { computed } from 'vue';
 
 const props = defineProps({
   level: { level: Number, default: 1 }
-})
+});
 
-const parsedLevel = computed(() => parseInt(props.level))
+const parsedLevel = computed(() => parseInt(props.level));
 </script>
 
 <template>

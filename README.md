@@ -26,7 +26,12 @@ import { createTheme } from '@rugo-vn/vue';
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+    './lib/**/*.{vue,js,ts,jsx,tsx}',
+    './node_modules/@rugo-vn/vue/lib/**/*.{vue,js,ts,jsx,tsx}',
+  ],
   theme: createTheme({
     size: 'normal',
     color: 'base',
@@ -56,6 +61,7 @@ import { RHeading } from '@rugo-vn/vue';
 | example   |         | Example project         |
 |           | make    | Make an example project |
 |           | run     | Run example project     |
+|           | build   | Build example project   |
 | publish   |         | Npm publishing scripts  |
 |           | release | Lastest releasing       |
 |           | beta    | Beta releasing          |
