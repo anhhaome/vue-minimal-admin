@@ -12,12 +12,18 @@ defineProps({
   closeable: { type: Boolean, default: true }
 });
 
+const emit = defineEmits(['close']);
+
 const isOpen = ref(false);
 const dialogOverlayRef = ref(null);
 
 const open = () => (isOpen.value = true);
 
-const close = () => (isOpen.value = false);
+const close = (isEmit = true) => {
+  isOpen.value = false;
+
+  if (isEmit) emit('close');
+};
 
 const toggle = () => (isOpen.value ? close() : open());
 
@@ -26,6 +32,12 @@ const handleClose = (e) => {
 
   close();
 };
+
+defineExpose({
+  open,
+  close,
+  toggle
+});
 </script>
 
 <template>

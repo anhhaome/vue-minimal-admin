@@ -1,6 +1,22 @@
 <script setup>
-import { RHeading, RPanel, RDialog, RButton } from '@rugo-vn/vue';
+import { ref } from 'vue';
+import {
+  RHeading,
+  RPanel,
+  RDialog,
+  RButton,
+  RConfirmDialog,
+  RAlertDialog,
+  useDialog
+} from '@rugo-vn/vue';
 import LoremIpsum from '../components/LoremIpsum.vue';
+
+const { confirm, alert } = useDialog();
+const dialogStatus = ref(null);
+
+const openCommonDialog = async (fn, msg) => {
+  dialogStatus.value = await fn(msg);
+};
 </script>
 
 <template>
@@ -21,6 +37,32 @@ import LoremIpsum from '../components/LoremIpsum.vue';
     >
       <LoremIpsum class="max-w-[560px]" :quantity="10" />
     </RDialog>
+
+    <RHeading class="mt-7 mb-7" level="4">Common</RHeading>
+
+    <RConfirmDialog class="mr-4" label="Confirm">
+      <LoremIpsum :quantity="1" />
+    </RConfirmDialog>
+
+    <RAlertDialog label="Alert">
+      <LoremIpsum :quantity="1" />
+    </RAlertDialog>
+
+    <RHeading class="mt-7 mb-7" level="4">Global</RHeading>
+
+    <RButton
+      variant="primary"
+      class="mr-4"
+      @click="() => openCommonDialog(confirm, 'Do you want to confirm?')"
+    >
+      Confirm
+    </RButton>
+
+    <RButton variant="primary" @click="() => openCommonDialog(alert, 'This is an alert string.')">
+      Alert
+    </RButton>
+
+    <div class="mt-4">Dialog Status: {{ dialogStatus }}</div>
 
     <RHeading class="mt-7 mb-7" level="4">Custom</RHeading>
 

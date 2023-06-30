@@ -30,14 +30,14 @@ export default {
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}',
     './lib/**/*.{vue,js,ts,jsx,tsx}',
-    './node_modules/@rugo-vn/vue/lib/**/*.{vue,js,ts,jsx,tsx}',
+    './node_modules/@rugo-vn/vue/lib/**/*.{vue,js,ts,jsx,tsx}'
   ],
   theme: createTheme({
     size: 'normal',
     color: 'base',
-    font: 'basic',
+    font: 'basic'
   }),
-  plugins: [],
+  plugins: []
 };
 ```
 
@@ -55,16 +55,17 @@ import { RHeading } from '@rugo-vn/vue';
 
 ## Scripts
 
-| Namespace | Script  | Detail                  |
-| --------- | ------- | ----------------------- |
-|           | dev     | Develop the library     |
-| example   |         | Example project         |
-|           | make    | Make an example project |
-|           | run     | Run example project     |
-|           | build   | Build example project   |
-| publish   |         | Npm publishing scripts  |
-|           | release | Lastest releasing       |
-|           | beta    | Beta releasing          |
+| Namespace | Script  | Detail                                  |
+| --------- | ------- | --------------------------------------- |
+|           | dev     | Develop the library                     |
+| example   |         | Example project                         |
+|           | make    | Make an example project                 |
+|           | run     | Run example project                     |
+|           | build   | Build example project                   |
+|           | prod    | Run example project based on build dist |
+| publish   |         | Npm publishing scripts                  |
+|           | release | Lastest releasing                       |
+|           | beta    | Beta releasing                          |
 
 ## License
 

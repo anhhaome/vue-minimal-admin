@@ -3,11 +3,11 @@ import RField from '../RHelper/RField.vue';
 </script>
 
 <template>
-  <RField v-slot="{ onInput, onBlur, value, labelRef, name }">
+  <RField v-slot="{ onInput, onBlur, value, labelRef, name, type }">
     <input
       :name="name"
       :id="labelRef"
-      type="text"
+      :type="type || 'text'"
       autocomplete="false"
       spellcheck="false"
       :value="value"

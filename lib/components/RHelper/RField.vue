@@ -10,6 +10,11 @@ const props = defineProps({
   modelValue: {},
   value: {},
 
+  // RInput
+  type: {
+    type: String
+  },
+
   // RSelect
   options: {
     type: Array

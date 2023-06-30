@@ -6,10 +6,13 @@ import {
   RPanel,
   RForm,
   RSingleSelect,
-  RMultiSelect
+  RMultiSelect,
+  useDialog
 } from '@rugo-vn/vue';
 
-const alert = (x) => window.alert(JSON.stringify(x, 0, 2));
+const { alert: showAlert } = useDialog();
+
+const alert = (x) => showAlert(JSON.stringify(x, 0, 2));
 const countries = [
   { text: 'Viet Nam', value: 'vn' },
   { text: 'United States of America', value: 'us' },
@@ -26,6 +29,8 @@ const colors = ['red', 'green', 'blue', 'cyan', 'emeral', 'pink', 'yellow'];
 
     <RForm class="mb-10" @submit="alert" v-slot="{ reset }">
       <RInput class="mb-7" name="email" label="Email" autofocus />
+
+      <RInput class="mb-7" name="dob" label="Date of Birth" type="date" />
 
       <RSingleSelect class="mb-7" name="country" label="Country" :options="countries" />
 
@@ -44,11 +49,14 @@ const colors = ['red', 'green', 'blue', 'cyan', 'emeral', 'pink', 'yellow'];
       v-slot="{ reset }"
       :value="{
         email: 'vue@rugo.vn',
+        dob: '2000-01-01',
         country: 'vn',
         colors: ['green', 'purple']
       }"
     >
       <RInput class="mb-7" name="email" label="Email" />
+
+      <RInput class="mb-7" name="dob" label="Date of Birth" type="date" />
 
       <RSingleSelect class="mb-7" name="country" label="Country" :options="countries" />
 
