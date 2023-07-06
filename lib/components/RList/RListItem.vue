@@ -1,9 +1,9 @@
 <script setup>
-import { countSlot } from '../../utils'
+import { countSlot } from '../../utils';
 </script>
 
 <template>
-  <div class="flex items-center">
+  <div class="flex items-center h-9 px-3">
     <div v-if="countSlot(['start'], $slots)">
       <slot name="start"> </slot>
     </div>

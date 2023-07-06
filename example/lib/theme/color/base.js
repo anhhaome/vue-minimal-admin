@@ -37,4 +37,4 @@ export default {
     warn: colors.amber,
     success: colors.emerald
   })
-}
+};

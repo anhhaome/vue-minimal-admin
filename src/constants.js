@@ -1,13 +1,24 @@
 export const ROUTE_PATHS = {
-  // forms
-  SELECT: '/select',
-  FORM_CONTROL: '/form',
+  ROOT: '/',
+  HOME: '/dashboard',
+  SIGN_IN: '/sign-in',
+  SIGN_UP: '/sign-up',
 
-  DIALOG: '/dialog',
-  HYPER_TABLE: '/hyper-table'
+  // forms
+  SELECT: '/dashboard/select',
+  FORM_CONTROL: '/dashboard/form',
+
+  DIALOG: '/dashboard/dialog',
+  HYPER_TABLE: '/dashboard/hyper-table'
 };
 
-export const NAVS = [
+export const MAIN_NAVS = [
+  { title: 'Home', action: ROUTE_PATHS.HOME },
+  { title: 'Sign In', action: ROUTE_PATHS.SIGN_IN },
+  { title: 'Sign Up', action: ROUTE_PATHS.SIGN_UP }
+];
+
+export const SIDE_NAVS = [
   { title: 'UI Components' },
   {
     title: 'Forms',
@@ -36,6 +47,8 @@ export const NAVS = [
 ];
 
 export const ROUTES = [
+  { path: ROUTE_PATHS.ROOT, redirect: ROUTE_PATHS.HOME },
+
   // forms
   {
     path: ROUTE_PATHS.FORM_CONTROL,

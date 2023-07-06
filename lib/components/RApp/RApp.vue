@@ -4,6 +4,7 @@ import { provide, ref } from 'vue';
 import RConfirmDialog from '../RDialog/RConfirmDialog.vue';
 import RAlertDialog from '../RDialog/RAlertDialog.vue';
 import { R_DIALOG } from '../../constants.js';
+import { countSlot } from '../../utils.js';
 
 const rConfirmDialogRef = ref(null);
 const rAlertDialogRef = ref(null);
@@ -38,16 +39,23 @@ provide(R_DIALOG, {
 </script>
 
 <template>
-  <div class="bg-gray-100 text-gray-500 antialiased min-w-screen min-h-screen">
+  <div class="text-base bg-gray-50 antialiased min-w-screen min-h-screen">
+    <div v-if="countSlot(['top'], $slots) > 0" class="w-full sticky top-0 z-40">
+      <slot name="top"></slot>
+    </div>
+
     <div class="flex items-start">
-      <slot name="left"></slot>
+      <div
+        v-if="countSlot(['left'], $slots) > 0"
+        class="w-60 h-[calc(100vh-54px)] top-[54px] sticky z-30"
+      >
+        <slot name="left"></slot>
+      </div>
 
       <div class="w-full">
-        <slot name="top"></slot>
-        <div class="pb-64">
+        <div class="p-8 pb-64">
           <slot></slot>
         </div>
-        <slot name="bottom"></slot>
       </div>
 
       <slot name="right"></slot>

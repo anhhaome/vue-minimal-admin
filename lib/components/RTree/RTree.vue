@@ -1,22 +1,16 @@
 <script setup>
-import { computed, reactive } from 'vue'
-import { generateId } from '../../utils'
-import RTreeLoader from './RTreeLoader.vue'
+import { computed, reactive } from 'vue';
+import { generateId } from '../../utils';
+import RTreeLoader from './RTreeLoader.vue';
 
-/**
- * data structure:
- * ```js
- * data = [
- *   { id: "", active: true|false, children: []}
- * ]
- * ```
- */
-
-const props = defineProps(['data'])
+const props = defineProps({
+  data: { type: Array, default: [] }, // { id, active, children }
+  level: { type: Number, default: 0 }
+});
 
 const isAnyActive = (data = []) => {
-  return data.some((item) => item.active || isAnyActive(item.children))
-}
+  return data.some((item) => item.active || isAnyActive(item.children));
+};
 
 const identifiedData = computed(() => {
   return props.data.map((node) =>
@@ -26,8 +20,8 @@ const identifiedData = computed(() => {
       active: node.active || isAnyActive(node.children),
       children: node.children
     })
-  )
-})
+  );
+});
 
 // const isAnyActive = data => {
 //   return data.some(item => item.active || isAnyActive(item.children || []))
@@ -53,6 +47,7 @@ const identifiedData = computed(() => {
   <div class="r-tree" v-for="item of identifiedData" :key="item.id">
     <slot
       :node="item.node"
+      :level="level"
       :isOpened="item.active"
       :open="() => (item.active = true)"
       :close="() => (item.active = false)"
@@ -62,6 +57,7 @@ const identifiedData = computed(() => {
     <RTreeLoader
       v-if="item.children?.length && item.active"
       :data="item.children"
+      :level="level + 1"
       v-slot="slotData"
     >
       <slot v-bind="slotData"></slot>
