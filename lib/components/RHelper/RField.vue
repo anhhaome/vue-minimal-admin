@@ -9,6 +9,8 @@ const props = defineProps({
   label: { type: String },
   modelValue: {},
   value: {},
+  size: { type: String, default: 'md' },
+  placeholder: { type: String },
 
   // RInput
   type: {
@@ -20,6 +22,12 @@ const props = defineProps({
     type: Array
   }
 });
+
+const SIZES = {
+  md: 'text-base',
+  lg: 'text-lg'
+};
+
 const emit = defineEmits(['input', 'update:modelValue']);
 
 const labelRef = generateId().toString();
@@ -41,7 +49,7 @@ const onInput = (value) => {
 
 <template>
   <div>
-    <RLabel :name="labelRef" :label="label" />
+    <RLabel :name="labelRef" :label="label" :class="SIZES[size]" />
 
     <slot
       v-bind="{

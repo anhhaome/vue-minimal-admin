@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="w-full h-[54px] bg-white shadow px-3 flex items-center">
+  <div class="w-full h-[54px] bg-white shadow-md px-3 flex items-center">
     <div class="p-2">
       <slot name="logo"><RLogo class="h-6" /></slot>
     </div>

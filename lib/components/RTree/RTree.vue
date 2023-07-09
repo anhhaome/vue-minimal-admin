@@ -22,25 +22,6 @@ const identifiedData = computed(() => {
     })
   );
 });
-
-// const isAnyActive = data => {
-//   return data.some(item => item.active || isAnyActive(item.children || []))
-// }
-
-// const currentData = computed(
-//   () =>
-//     props.data
-//       ?.filter((node) => node.parent === props.parent)
-//       ?.map((node) => {
-//         const children = props.data.filter((childNode) => node.id === childNode.parent)
-//         return reactive({
-//           id: node.id,
-//           node,
-//           active: node.active || isChildrenActive(children),
-//           children
-//         })
-//       }) || []
-// )
 </script>
 
 <template>

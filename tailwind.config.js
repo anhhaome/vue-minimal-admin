@@ -8,10 +8,6 @@ export default {
     './lib/**/*.{vue,js,ts,jsx,tsx}',
     './node_modules/@rugo-vn/vue/lib/**/*.{vue,js,ts,jsx,tsx}'
   ],
-  theme: createTheme({
-    size: 'normal',
-    color: 'base',
-    font: 'basic'
-  }),
+  theme: createTheme(),
   plugins: []
 };

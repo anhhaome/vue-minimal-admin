@@ -1,16 +1,16 @@
 <script setup>
-import RField from '../RHelper/RField.vue'
-import RSelectBase from './RSelectBase.vue'
+import RField from '../RHelper/RField.vue';
+import RBaseSelect from './RBaseSelect.vue';
 </script>
 
 <template>
-  <RField v-slot="{ labelRef, name, options, value, onInput }">
-    <RSelectBase
-      :labelRef="labelRef"
-      :name="name"
-      :options="options"
-      :value="[value]"
-      @input="(list) => onInput(list[0])"
+  <RField v-slot="slotData">
+    <RBaseSelect
+      v-bind="{
+        ...slotData,
+        value: [slotData.value],
+        onInput: (arr) => slotData.onInput(arr[0])
+      }"
     />
   </RField>
 </template>

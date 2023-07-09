@@ -1,18 +1,17 @@
 <script setup>
-import { isEmpty } from 'ramda'
-import RField from '../RHelper/RField.vue'
-import RSelectBase from './RSelectBase.vue'
+import { isEmpty } from 'ramda';
+import RField from '../RHelper/RField.vue';
+import RBaseSelect from './RBaseSelect.vue';
 </script>
 
 <template>
-  <RField v-slot="{ name, labelRef, options, value, onInput }">
-    <RSelectBase
-      :labelRef="labelRef"
-      :name="name"
-      :options="options"
-      :value="value"
+  <RField v-slot="slotData">
+    <RBaseSelect
+      v-bind="{
+        ...slotData,
+        onInput: (arr) => (isEmpty(arr) ? slotData.onInput(undefined) : slotData.onInput(arr))
+      }"
       :isMultiple="true"
-      @input="(list) => (isEmpty(list) ? onInput(undefined) : onInput(list))"
     />
   </RField>
 </template>

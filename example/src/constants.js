@@ -6,7 +6,7 @@ export const ROUTE_PATHS = {
 
   // forms
   SELECT: '/dashboard/select',
-  FORM_CONTROL: '/dashboard/form',
+  FORM: '/dashboard/form',
 
   DIALOG: '/dashboard/dialog',
   HYPER_TABLE: '/dashboard/hyper-table'
@@ -26,7 +26,7 @@ export const SIDE_NAVS = [
     children: [
       {
         title: 'Form Control',
-        action: ROUTE_PATHS.FORM_CONTROL
+        action: ROUTE_PATHS.FORM
       },
       {
         title: 'Select',
@@ -51,8 +51,8 @@ export const ROUTES = [
 
   // forms
   {
-    path: ROUTE_PATHS.FORM_CONTROL,
-    component: () => import('./views/forms/FormControlView.vue')
+    path: ROUTE_PATHS.FORM,
+    component: () => import('./views/forms/FormView.vue')
   },
   {
     path: ROUTE_PATHS.SELECT,

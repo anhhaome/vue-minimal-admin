@@ -5,6 +5,7 @@ import RConfirmDialog from '../RDialog/RConfirmDialog.vue';
 import RAlertDialog from '../RDialog/RAlertDialog.vue';
 import { R_DIALOG } from '../../constants.js';
 import { countSlot } from '../../utils.js';
+import RJson from '../RTree/RJson.vue';
 
 const rConfirmDialogRef = ref(null);
 const rAlertDialogRef = ref(null);
@@ -64,13 +65,24 @@ provide(R_DIALOG, {
     <RConfirmDialog ref="rConfirmDialogRef" @confirm="(value) => confirmSubcriber(value)">
       <template #open><span class="hidden"></span></template>
 
-      <div class="text-center">{{ dialogMessage }}</div>
+      <RJson v-if="typeof dialogMessage === 'object'" :data="dialogMessage" />
+      <div v-else class="text-center">{{ dialogMessage }}</div>
     </RConfirmDialog>
 
     <RAlertDialog ref="rAlertDialogRef" @close="alertSubcriber(true)">
       <template #open><span class="hidden"></span></template>
 
-      <div class="text-center">{{ dialogMessage }}</div>
+      <RJson v-if="typeof dialogMessage === 'object'" :data="dialogMessage" />
+      <div v-else class="text-center">{{ dialogMessage }}</div>
     </RAlertDialog>
   </div>
 </template>
+
+<style>
+code,
+kbd,
+samp,
+pre {
+  font-size: 0.95em;
+}
+</style>

@@ -48,7 +48,7 @@ defineExpose({
 
     <div
       v-if="isOpen"
-      class="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 overflow-y-auto"
+      class="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 overflow-y-auto z-40"
       ref="dialogOverlayRef"
       @click="handleClose"
     >

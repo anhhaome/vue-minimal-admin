@@ -1,20 +1,33 @@
 <script setup>
-import { ref } from 'vue';
-import { RHeading, RPanel, RSingleSelect } from '../../../lib/index.js';
+import { RHeading, RMultiSelect, RSingleSelect } from '../../../lib/index.js';
+import ComponentViewTemplate from '../../components/ComponentViewTemplate.vue';
 import { SAMPLE } from '../../constants.js';
-
-const singleSelectRef = ref('');
-const showAlert = alert;
 </script>
 
 <template>
-  <RPanel>
-    <RHeading class="mb-10" level="2">Select</RHeading>
+  <ComponentViewTemplate title="Select" :components="['RSingleSelect', 'RMultiSelect']">
+    <template #row-1>
+      <RHeading level="4" class="mb-2">Normal Select</RHeading>
 
-    <RHeading class="mb-7" level="4">Single Select</RHeading>
+      <p class="mb-4">
+        <code>(size = "md") - default</code>
+      </p>
 
-    <RSingleSelect v-model="singleSelectRef" :options="SAMPLE.countries" @input="showAlert" />
+      <RSingleSelect label="Single Select" class="mb-4" :options="SAMPLE.countries" />
 
-    <div class="mt-3 mb-7">You are selecting: {{ singleSelectRef }}</div>
-  </RPanel>
+      <RMultiSelect label="Multi Select" :options="SAMPLE.colors" />
+    </template>
+
+    <template #row-2>
+      <RHeading level="4" class="mb-2">Large Select</RHeading>
+
+      <p class="mb-4">
+        <code>(size = "lg")</code>
+      </p>
+
+      <RSingleSelect label="Single Select" size="lg" class="mb-4" :options="SAMPLE.countries" />
+
+      <RMultiSelect label="Multi Select" size="lg" :options="SAMPLE.colors" />
+    </template>
+  </ComponentViewTemplate>
 </template>
