@@ -33,8 +33,8 @@ export default {
     primary: colors.cyan,
     secondary: colors.stone,
     danger: colors.rose,
-    info: colors.indigo,
+    info: colors.violet,
     warn: colors.amber,
-    success: colors.emerald
+    success: colors.lime
   })
 };

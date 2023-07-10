@@ -1,5 +1,6 @@
 <script setup>
-import { computed } from 'vue'
+import { computed } from 'vue';
+import { INPUT_SIZES } from '../../constants.js';
 
 /**
  * Slot syntax:
@@ -8,44 +9,44 @@ import { computed } from 'vue'
  * - top(<field>) = { values, rows }
  * - bot(<field>) = { values, rows }
  */
-defineProps(['data'])
-const slots = defineSlots()
+defineProps(['data']);
+const slots = defineSlots();
 
 const parseName = (name) => {
-  const rel = /^(.*?)\((.*?)\)$/gm.exec(name)
+  const rel = /^(.*?)\((.*?)\)$/gm.exec(name);
 
-  if (!rel) return null
+  if (!rel) return null;
 
-  return { key: rel[1], value: rel[2] }
-}
+  return { key: rel[1], value: rel[2] };
+};
 
 const slotNames = computed(() => {
-  const result = []
-  for (const name in slots) result.push(parseName(name))
-  return result
-})
+  const result = [];
+  for (const name in slots) result.push(parseName(name));
+  return result;
+});
 
 const fields = computed(() => {
-  return slotNames.value.filter(({ key }) => key === 'head').map(({ value }) => value)
-})
+  return slotNames.value.filter(({ key }) => key === 'head').map(({ value }) => value);
+});
 
 const isAnyTop = computed(() => {
-  return slotNames.value.some(({ key }) => key === 'top')
-})
+  return slotNames.value.some(({ key }) => key === 'top');
+});
 
 const isAnyBot = computed(() => {
-  return slotNames.value.some(({ key }) => key === 'bot')
-})
+  return slotNames.value.some(({ key }) => key === 'bot');
+});
 </script>
 
 <template>
-  <table class="table table-auto w-full">
-    <thead class="bg-gray-50">
+  <table class="r-table table table-auto w-full">
+    <thead class="bg-gray-100">
       <!-- head -->
 
       <tr>
         <th
-          :class="`border border-gray-200 text-gray-500 uppercase text-xs px-6 py-4 tracking-wider text-left font-semibold head(${name})`"
+          :class="`h-9 leading-5 px-3 py-1.5 border text-left head(${name})`"
           v-for="name in fields"
           :key="`head(${name})`"
         >
@@ -58,7 +59,7 @@ const isAnyBot = computed(() => {
 
       <tr class="hover:bg-gray-50" v-if="isAnyTop">
         <td
-          :class="`border border-b-2 border-gray-200 px-6 py-4 text-sm top(${name})`"
+          :class="`h-9 leading-5 px-3 py-1.5 border top(${name})`"
           v-for="name in fields"
           :key="`top(${name})`"
         >
@@ -70,7 +71,7 @@ const isAnyBot = computed(() => {
 
       <tr class="hover:bg-gray-50" v-for="row in data" :key="`row(${row.id})`">
         <td
-          :class="`border border-gray-200 px-6 py-4 text-sm cell(${name})`"
+          :class="`h-9 leading-5 px-3 py-1.5 border cell(${name})`"
           v-for="name in fields"
           :key="`cell(${name})`"
         >
@@ -82,7 +83,7 @@ const isAnyBot = computed(() => {
 
       <tr class="hover:bg-gray-50" v-if="isAnyBot">
         <td
-          :class="`border border-t-2 border-gray-200 px-6 py-4 text-sm bot(${name})`"
+          :class="`h-9 leading-5 px-3 py-1.5 border bot(${name})`"
           v-for="name in fields"
           :key="`bot(${name})`"
         >

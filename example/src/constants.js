@@ -1,32 +1,57 @@
 export const ROUTE_PATHS = {
-  HOME: '/',
-  DASHBOARD: '/dashboard',
+  ROOT: '/',
+  HOME: '/home',
   SIGN_IN: '/sign-in',
-  SIGN_UP: '/sign-up',
+  // SIGN_UP: '/sign-up',
+
+  DASHBOARD: '/home',
+  HEADING: '/home/heading',
+
+  DIALOG: '/home/dialog',
+  TABLE: '/home/table',
 
   // forms
-  SELECT: '/dashboard/select',
-  FORM: '/dashboard/form',
-
-  DIALOG: '/dashboard/dialog',
-  HYPER_TABLE: '/dashboard/hyper-table'
+  BUTTON: '/home/button',
+  FORM: '/home/form',
+  INPUT: '/home/input',
+  SELECT: '/home/select'
 };
 
 export const MAIN_NAVS = [
-  { title: 'Dashboard', action: ROUTE_PATHS.DASHBOARD },
-  { title: 'Sign In', action: ROUTE_PATHS.SIGN_IN },
-  { title: 'Sign Up', action: ROUTE_PATHS.SIGN_UP }
+  { title: 'Home', action: ROUTE_PATHS.DASHBOARD },
+  { title: 'Sign In', action: ROUTE_PATHS.SIGN_IN }
+  // { title: 'Sign Up', action: ROUTE_PATHS.SIGN_UP }
 ];
 
 export const SIDE_NAVS = [
+  { title: 'Overview' },
+  {
+    title: 'Dashboard',
+    icon: 'RocketLaunchIcon',
+    action: ROUTE_PATHS.DASHBOARD
+  },
   { title: 'UI Components' },
+  {
+    title: 'Dialog',
+    icon: 'ChatBubbleLeftEllipsisIcon',
+    action: ROUTE_PATHS.DIALOG
+  },
+
   {
     title: 'Forms',
     icon: 'DocumentTextIcon',
     children: [
       {
-        title: 'Form Control',
+        title: 'Button',
+        action: ROUTE_PATHS.BUTTON
+      },
+      {
+        title: 'Form',
         action: ROUTE_PATHS.FORM
+      },
+      {
+        title: 'Input',
+        action: ROUTE_PATHS.INPUT
       },
       {
         title: 'Select',
@@ -34,29 +59,31 @@ export const SIDE_NAVS = [
       }
     ]
   },
+
   {
-    title: 'Dialog',
-    icon: 'ChatBubbleLeftEllipsisIcon',
-    action: ROUTE_PATHS.DIALOG
+    title: 'Heading',
+    icon: 'BookmarkIcon',
+    action: ROUTE_PATHS.HEADING
   },
+
   {
-    title: 'Hyper Table',
+    title: 'Table',
     icon: 'CalculatorIcon',
-    action: ROUTE_PATHS.HYPER_TABLE
+    action: ROUTE_PATHS.TABLE
   }
 ];
 
 export const ROUTES = [
-  { path: ROUTE_PATHS.HOME, redirect: ROUTE_PATHS.DASHBOARD },
+  { path: ROUTE_PATHS.ROOT, redirect: ROUTE_PATHS.DASHBOARD },
 
-  // forms
   {
-    path: ROUTE_PATHS.FORM,
-    component: () => import('./views/forms/FormView.vue')
+    path: ROUTE_PATHS.DASHBOARD,
+    component: () => import('./views/DashboardView.vue')
   },
+
   {
-    path: ROUTE_PATHS.SELECT,
-    component: () => import('./views/forms/SelectView.vue')
+    path: ROUTE_PATHS.HEADING,
+    component: () => import('./views/HeadingView.vue')
   },
 
   {
@@ -65,8 +92,29 @@ export const ROUTES = [
   },
 
   {
-    path: ROUTE_PATHS.HYPER_TABLE,
-    component: () => import('./views/HyperTableView.vue')
+    path: ROUTE_PATHS.TABLE,
+    component: () => import('./views/TableView.vue')
+  },
+
+  // forms
+  {
+    path: ROUTE_PATHS.BUTTON,
+    component: () => import('./views/forms/ButtonView.vue')
+  },
+
+  {
+    path: ROUTE_PATHS.FORM,
+    component: () => import('./views/forms/FormView.vue')
+  },
+
+  {
+    path: ROUTE_PATHS.INPUT,
+    component: () => import('./views/forms/InputView.vue')
+  },
+
+  {
+    path: ROUTE_PATHS.SELECT,
+    component: () => import('./views/forms/SelectView.vue')
   }
 ];
 

@@ -8,7 +8,7 @@ export const ROUTE_PATHS = {
   HEADING: '/home/heading',
 
   DIALOG: '/home/dialog',
-  HYPER_TABLE: '/home/hyper-table',
+  TABLE: '/home/table',
 
   // forms
   BUTTON: '/home/button',
@@ -67,9 +67,9 @@ export const SIDE_NAVS = [
   },
 
   {
-    title: 'Hyper Table',
+    title: 'Table',
     icon: 'CalculatorIcon',
-    action: ROUTE_PATHS.HYPER_TABLE
+    action: ROUTE_PATHS.TABLE
   }
 ];
 
@@ -92,8 +92,8 @@ export const ROUTES = [
   },
 
   {
-    path: ROUTE_PATHS.HYPER_TABLE,
-    component: () => import('./views/HyperTableView.vue')
+    path: ROUTE_PATHS.TABLE,
+    component: () => import('./views/TableView.vue')
   },
 
   // forms

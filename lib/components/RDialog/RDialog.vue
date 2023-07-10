@@ -17,10 +17,14 @@ const emit = defineEmits(['close']);
 const isOpen = ref(false);
 const dialogOverlayRef = ref(null);
 
-const open = () => (isOpen.value = true);
+const open = () => {
+  isOpen.value = true;
+  document.body.style.overflow = 'hidden';
+};
 
 const close = (isEmit = true) => {
   isOpen.value = false;
+  document.body.style.overflow = 'initial';
 
   if (isEmit) emit('close');
 };
@@ -52,7 +56,7 @@ defineExpose({
       ref="dialogOverlayRef"
       @click="handleClose"
     >
-      <div class="mx-auto my-16 bg-white shadow-xl w-fit rounded-lg relative overflow-hidden">
+      <div class="mx-auto my-16 bg-white shadow-lg w-fit rounded relative overflow-hidden">
         <button
           type="button"
           class="px-1.5 hover:text-gray-800 absolute top-7 right-6"

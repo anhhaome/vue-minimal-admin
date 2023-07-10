@@ -1,1 +1,1 @@
-export { default as normal } from './normal.js'
+export { default as init } from './init.js';

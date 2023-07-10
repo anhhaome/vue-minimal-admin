@@ -7,7 +7,7 @@ import {
   RSingleSelect,
   RMultiSelect,
   useDialog
-} from '../../../lib/index.js';
+} from '@rugo-vn/vue';
 import ComponentViewTemplate from '../../components/ComponentViewTemplate.vue';
 
 const { alert: showAlert } = useDialog();

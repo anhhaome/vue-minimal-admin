@@ -31,9 +31,10 @@ const updateActive = () => {
   deactive(sideNavs);
   active(sideNavs);
 
-  isDashboard.value = mainNavs.some((nav) => nav.action === ROUTE_PATHS.DASHBOARD && nav.active);
+  isDashboard.value = mainNavs.some((nav) => nav.action === ROUTE_PATHS.HOME && nav.active);
 };
 
+updateActive();
 watch(() => route.path, updateActive);
 </script>
 
