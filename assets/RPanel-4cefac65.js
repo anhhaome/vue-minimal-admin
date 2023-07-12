@@ -1,0 +1,1 @@
+import{a0 as o,o as r,c as s,q as t}from"./index-aa95f5be.js";const c={},n={class:"bg-white rounded border p-4"};function a(e,d){return r(),s("div",n,[t(e.$slots,"default")])}const l=o(c,[["render",a]]);export{l as R};

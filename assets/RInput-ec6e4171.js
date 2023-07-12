@@ -1,0 +1,1 @@
+import{_,a as c}from"./RBaseInput-33505fa1.js";import{o as l,f as p,w as e,b as i,A as r,B as t,C as m,n as f,q as u}from"./index-aa95f5be.js";const b={__name:"RInput",setup(d){return(s,$)=>(l(),p(c,null,{default:e(o=>[i(_,r(t(o)),m({_:2},[f(Object.keys(s.$slots),a=>({name:a,fn:e(n=>[u(s.$slots,a,r(t(n)))])}))]),1040)]),_:3}))}};export{b as _};
